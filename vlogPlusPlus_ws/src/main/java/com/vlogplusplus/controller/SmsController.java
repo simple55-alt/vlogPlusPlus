@@ -18,9 +18,9 @@ public class SmsController {
     @RequestMapping(value = "/sendCode", method = RequestMethod.POST)
     public void sendCode(@RequestBody Sms sms){
         int appid = 1000000003;
-        String appkey = "e*****************************71";
+        String appkey = "";
         int templateId = 123456; //模板ID
-        String smsSign = "你的签名";
+        String smsSign = "CNXFS";
         try{
             String[] params = {sms.getCode(), Integer.toString(sms.getMin())}; //短信中的参数
             SmsSingleSender ssender = new SmsSingleSender(appid,appkey);

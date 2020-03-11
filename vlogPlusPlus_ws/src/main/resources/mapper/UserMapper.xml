@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vlogplusplus.dao.IUserDao">
+    <resultMap id="BaseResultMap" type="com.vlogplusplus.entity.User">
+    </resultMap>
+    <select id="login" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.User">
+        SELECT * from user where username=#{username} and password=#{password}
+    </select>
+</mapper>

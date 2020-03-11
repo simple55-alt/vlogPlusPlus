@@ -1,9 +1,9 @@
 package com.vlogplusplus.entity;
 
 public class Sms {
-    String phoneNumber;
-    String code;
-    int min;
+    private String phoneNumber;
+    private String code;
+    private int min;
 
     public String getPhoneNumber() {
         return phoneNumber;

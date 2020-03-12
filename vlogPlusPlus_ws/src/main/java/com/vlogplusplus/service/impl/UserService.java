@@ -6,6 +6,8 @@ import com.vlogplusplus.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class UserService implements IUserService {
     @Autowired
@@ -19,5 +21,10 @@ public class UserService implements IUserService {
     @Override
     public User get_user(int u_id) {
         return iUserDao.get_user(u_id);
+    }
+
+    @Override
+    public void add(String username, String password, String nickname, String email, String phone, String image, byte sex, Date birthday, String fashion) {
+        iUserDao.add(username, password, nickname, email, phone, image, sex, birthday, fashion);
     }
 }

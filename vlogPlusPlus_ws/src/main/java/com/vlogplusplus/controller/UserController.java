@@ -20,4 +20,10 @@ public class UserController {
     private User get_user(@RequestParam int u_id){
         return iUserService.get_user(u_id);
     }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    private void add(@RequestBody User user) {
+         iUserService.add(user.getUsername(),user.getPassword(),user.getNickname(),user.getEmail(),user.getPhone(),
+                 user.getImage(),user.getSex(),user.getBirthday(),user.getFashion());
+    }
 }

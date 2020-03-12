@@ -26,4 +26,9 @@ public class UserController {
          iUserService.add(user.getUsername(),user.getPassword(),user.getNickname(),user.getEmail(),user.getPhone(),
                  user.getImage(),user.getSex(),user.getBirthday(),user.getFashion());
     }
+
+    @RequestMapping(value = "/update_pass", method = RequestMethod.POST)
+    private void update_pass(@RequestBody User user) {
+        iUserService.update_pass(user.getPassword(),user.getU_id());
+    }
 }

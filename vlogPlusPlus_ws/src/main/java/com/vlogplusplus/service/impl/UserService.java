@@ -27,4 +27,9 @@ public class UserService implements IUserService {
     public void add(String username, String password, String nickname, String email, String phone, String image, byte sex, Date birthday, String fashion) {
         iUserDao.add(username, password, nickname, email, phone, image, sex, birthday, fashion);
     }
+
+    @Override
+    public void update_pass(String password, int u_id) {
+        iUserDao.update_pass(password, u_id);
+    }
 }

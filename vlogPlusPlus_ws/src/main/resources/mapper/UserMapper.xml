@@ -12,6 +12,11 @@
     </select>
 
     <insert id="add"  parameterType="com.vlogplusplus.entity.User">
-        INSERT INTO `user`(username,`password`,nickname,email,phone,image,sex,birthday,fashion) VALUES(#{username},#{password},#{nickname},#{email},#{phone},#{image},#{sex},#{birthday},#{fashion})
+        INSERT INTO `user`(username,`password`,nickname,email,phone,image,sex,birthday,fashion)
+         VALUES(#{username},#{password},#{nickname},#{email},#{phone},#{image},#{sex},#{birthday},#{fashion})
     </insert>
+
+    <update id="update_pass"  parameterType="com.vlogplusplus.entity.User">
+        UPDATE `user` SET `password`=#{password} WHERE u_id=#{u_id}
+    </update>
 </mapper>

@@ -9,10 +9,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService implements IUserService {
     @Autowired
-    private IUserDao iLoginDao;
+    private IUserDao iUserDao;
 
     @Override
     public User login(String username, String password) {
-        return iLoginDao.login(username, password);
+        return iUserDao.login(username, password);
+    }
+
+    @Override
+    public User get_user(int u_id) {
+        return iUserDao.get_user(u_id);
     }
 }

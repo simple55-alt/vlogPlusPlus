@@ -9,10 +9,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/user")
 public class UserController {
     @Autowired
-    private IUserService iLoginService;
+    private IUserService iUserService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     private User login(@RequestBody User user){
-        return iLoginService.login(user.getUsername(), user.getPassword());
+        return iUserService.login(user.getUsername(), user.getPassword());
+    }
+
+    @RequestMapping(value = "/get_user", method = RequestMethod.POST)
+    private User get_user(@RequestParam int u_id){
+        return iUserService.get_user(u_id);
     }
 }

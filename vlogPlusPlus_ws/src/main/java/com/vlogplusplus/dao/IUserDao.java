@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IUserDao {
     User login(@Param("username") String username, @Param("password") String password);
+    User get_user(@Param("u_id") int u_id);
 }

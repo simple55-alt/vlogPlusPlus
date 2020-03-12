@@ -6,4 +6,7 @@
     <select id="login" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.User">
         SELECT * from user where username=#{username} and password=#{password}
     </select>
+    <select id="get_user" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.User">
+        SELECT * FROM `user` WHERE u_id=#{u_id}
+    </select>
 </mapper>

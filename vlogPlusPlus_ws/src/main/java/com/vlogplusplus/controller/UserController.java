@@ -31,4 +31,9 @@ public class UserController {
     private void update_pass(@RequestBody User user) {
         iUserService.update_pass(user.getPassword(),user.getU_id());
     }
+
+    @RequestMapping(value = "/del", method = RequestMethod.POST)
+    private void del(@RequestParam int u_id) {
+        iUserService.del(u_id);
+    }
 }

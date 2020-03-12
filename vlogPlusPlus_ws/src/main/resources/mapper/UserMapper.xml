@@ -19,4 +19,8 @@
     <update id="update_pass"  parameterType="com.vlogplusplus.entity.User">
         UPDATE `user` SET `password`=#{password} WHERE u_id=#{u_id}
     </update>
+
+    <delete id="del"  parameterType="com.vlogplusplus.entity.User">
+        DELETE FROM `user` WHERE u_id=#{u_id}
+    </delete>
 </mapper>

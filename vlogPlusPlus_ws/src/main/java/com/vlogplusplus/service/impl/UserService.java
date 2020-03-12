@@ -32,4 +32,9 @@ public class UserService implements IUserService {
     public void update_pass(String password, int u_id) {
         iUserDao.update_pass(password, u_id);
     }
+
+    @Override
+    public void del(int u_id) {
+        iUserDao.del(u_id);
+    }
 }

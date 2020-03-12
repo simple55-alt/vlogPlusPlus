@@ -10,4 +10,6 @@ public interface IUserService {
     void add(String username, String password, String nickname, String email,
              String phone, String image, byte sex,  Date birthday, String fashion);
     void update_pass(String password,int u_id);
+    void del(int u_id);
+
 }

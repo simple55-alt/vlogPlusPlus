@@ -1,5 +1,6 @@
 package com.vlogplusplus.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 public class Topic {
@@ -7,6 +8,7 @@ public class Topic {
     private String title;
     private String summary;
     private String video;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date c_time;
     private int count;
     private int u_id;

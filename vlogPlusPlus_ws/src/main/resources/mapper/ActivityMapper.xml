@@ -12,5 +12,9 @@
         VALUES (#{title},#{type},#{var},#{begin_time},#{end_time},#{method},#{image})
     </insert>
 
+    <select id="list_new" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Activity">
+        SELECT * FROM `activity` ORDER BY c_time DESC LIMIT #{n}
+    </select>
+
 
 </mapper>

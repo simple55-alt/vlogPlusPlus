@@ -9,4 +9,5 @@ public interface IActivityService {
     List<Activity> list();
     void add(String title, String type, String var,
              Date begin_time,Date end_time, String method,String image);
+    List<Activity> list_new(int n);
 }

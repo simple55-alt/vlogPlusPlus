@@ -4,10 +4,7 @@ package com.vlogplusplus.controller;
 import com.vlogplusplus.entity.Activity;
 import com.vlogplusplus.service.IActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +23,10 @@ public class ActivityController {
     private void add(@RequestBody Activity activity){
         iActivityService.add(activity.getTitle(),activity.getType(),activity.getVar(),activity.getBegin_time(),activity.getEnd_time(),
                 activity.getMethod(),activity.getImage());
+    }
+
+    @RequestMapping(value = "/list_new", method = RequestMethod.POST)
+    private List<Activity> list_new(@RequestParam int n){
+        return iActivityService.list_new(n);
     }
 }

@@ -8,6 +8,10 @@
         SELECT * FROM topic
     </select>
 
+    <select id="list_new" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Topic">
+        SELECT * FROM topic ORDER BY c_time DESC LIMIT #{n}
+    </select>
+
 
 
 </mapper>

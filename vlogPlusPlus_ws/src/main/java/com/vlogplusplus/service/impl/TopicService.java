@@ -18,4 +18,9 @@ public class TopicService implements ITopicService {
     public List<Topic> list() {
         return iTopicDao.list();
     }
+
+    @Override
+    public List<Topic> list_new(int n) {
+        return iTopicDao.list_new(n);
+    }
 }

@@ -23,4 +23,9 @@ public class TopicService implements ITopicService {
     public List<Topic> list_new(int n) {
         return iTopicDao.list_new(n);
     }
+
+    @Override
+    public List<Topic> list_max(int n) {
+        return iTopicDao.list_max(n);
+    }
 }

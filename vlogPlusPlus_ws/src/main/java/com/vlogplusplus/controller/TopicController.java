@@ -27,4 +27,9 @@ public class TopicController {
         return iTopicService.list_new(n);
     }
 
+    @RequestMapping(value = "/list_max", method = RequestMethod.POST)
+    private List<Topic> list_max(@RequestParam int n){
+        return iTopicService.list_max(n);
+    }
+
 }

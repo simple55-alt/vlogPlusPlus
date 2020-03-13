@@ -12,6 +12,10 @@
         SELECT * FROM topic ORDER BY c_time DESC LIMIT #{n}
     </select>
 
+    <select id="list_max" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Topic">
+        SELECT * FROM topic ORDER BY count DESC LIMIT #{n}
+    </select>
+
 
 
 </mapper>

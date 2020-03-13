@@ -20,6 +20,10 @@
         UPDATE topic set title=#{title},summary=#{summary},video=#{video} WHERE id=#{id}
     </update>
 
+    <delete id="del"  parameterType="com.vlogplusplus.entity.Topic">
+        DELETE FROM topic WHERE id=#{id}
+    </delete>
+
 
 
 </mapper>

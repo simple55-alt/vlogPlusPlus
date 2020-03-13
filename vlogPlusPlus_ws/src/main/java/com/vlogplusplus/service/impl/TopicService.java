@@ -33,4 +33,9 @@ public class TopicService implements ITopicService {
     public void update(String title, String summary, String video, int id) {
         iTopicDao.update(title,summary,video,id);
     }
+
+    @Override
+    public void del(int id) {
+        iTopicDao.del(id);
+    }
 }

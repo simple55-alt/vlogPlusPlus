@@ -14,4 +14,5 @@ public interface ITopicDao {
     List<Topic> list_max(@Param("n") int n);
     void update(@Param("title") String title, @Param("summary") String summary, @Param("video") String video,
                 @Param("id") int id);
+    void del(@Param("id") int id);
 }

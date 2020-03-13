@@ -10,4 +10,5 @@ public interface ITopicService {
     List<Topic> list_new(int n);
     List<Topic> list_max(int n);
     void update(String title, String summary, String video, int id);
+    void del(int id);
 }

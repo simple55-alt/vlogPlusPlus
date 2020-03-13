@@ -34,4 +34,7 @@ public class TopicController {
         iTopicService.update(topic.getTitle(), topic.getSummary(), topic.getVideo(), topic.getId());
     }
 
+    @RequestMapping(value = "/del", method = RequestMethod.POST)
+    private void del(@RequestParam int id) { iTopicService.del(id); }
+
 }

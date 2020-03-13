@@ -16,6 +16,10 @@
         SELECT * FROM topic ORDER BY count DESC LIMIT #{n}
     </select>
 
+    <update id="update"  parameterType="com.vlogplusplus.entity.Topic">
+        UPDATE topic set title=#{title},summary=#{summary},video=#{video} WHERE id=#{id}
+    </update>
+
 
 
 </mapper>

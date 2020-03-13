@@ -28,4 +28,9 @@ public class TopicService implements ITopicService {
     public List<Topic> list_max(int n) {
         return iTopicDao.list_max(n);
     }
+
+    @Override
+    public void update(String title, String summary, String video, int id) {
+        iTopicDao.update(title,summary,video,id);
+    }
 }

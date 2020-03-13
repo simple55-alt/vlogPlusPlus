@@ -9,6 +9,7 @@ public class Topic {
     private String video;
     private Date c_time;
     private int count;
+    private int u_id;
 
     public int getId() {
         return id;
@@ -56,5 +57,13 @@ public class Topic {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public int getU_id() {
+        return u_id;
+    }
+
+    public void setU_id(int u_id) {
+        this.u_id = u_id;
     }
 }

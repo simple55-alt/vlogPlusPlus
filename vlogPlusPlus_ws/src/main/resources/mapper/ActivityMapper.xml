@@ -6,4 +6,11 @@
     <select id="list" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Activity">
         SELECT * FROM activity
     </select>
+
+    <insert id="add" parameterType="com.vlogplusplus.entity.Activity">
+        INSERT INTO activity (title,type,var,begin_time,end_time,method,image)
+        VALUES (#{title},#{type},#{var},#{begin_time},#{end_time},#{method},#{image})
+    </insert>
+
+
 </mapper>

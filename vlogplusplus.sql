@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 06/03/2020 23:37:33
+ Date: 13/03/2020 16:16:07
 */
 
 SET NAMES utf8mb4;
@@ -32,7 +32,7 @@ CREATE TABLE `activity`  (
   `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
   `c_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of activity
@@ -54,7 +54,7 @@ CREATE TABLE `comment`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `u_id`(`u_id`) USING BTREE,
   CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of comment
@@ -74,7 +74,7 @@ CREATE TABLE `complaint`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `u_id`(`u_id`) USING BTREE,
   CONSTRAINT `complaint_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of complaint
@@ -93,7 +93,7 @@ CREATE TABLE `draft`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `video_id`(`video_id`) USING BTREE,
   CONSTRAINT `draft_ibfk_1` FOREIGN KEY (`video_id`) REFERENCES `video` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of draft
@@ -114,7 +114,7 @@ CREATE TABLE `fan`  (
   INDEX `up_id`(`up_id`) USING BTREE,
   CONSTRAINT `fan_ibfk_1` FOREIGN KEY (`fan_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fan_ibfk_2` FOREIGN KEY (`up_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of fan
@@ -135,7 +135,7 @@ CREATE TABLE `favorite`  (
   INDEX `video_id`(`video_id`) USING BTREE,
   CONSTRAINT `favorite_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `favorite_ibfk_2` FOREIGN KEY (`video_id`) REFERENCES `video` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of favorite
@@ -158,7 +158,7 @@ CREATE TABLE `letter`  (
   INDEX `receiver_id`(`receiver_id`) USING BTREE,
   CONSTRAINT `letter_ibfk_1` FOREIGN KEY (`sender_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `letter_ibfk_2` FOREIGN KEY (`receiver_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of letter
@@ -179,7 +179,7 @@ CREATE TABLE `likes`  (
   INDEX `video_id`(`video_id`) USING BTREE,
   CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`video_id`) REFERENCES `video` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of likes
@@ -196,7 +196,7 @@ CREATE TABLE `search`  (
   `c_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
   `count` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of search
@@ -219,7 +219,7 @@ CREATE TABLE `template_info`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `u_id`(`u_id`) USING BTREE,
   CONSTRAINT `template_info_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of template_info
@@ -236,14 +236,38 @@ CREATE TABLE `topic`  (
   `summary` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
   `video` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
   `c_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
-  `count` int(11) NULL DEFAULT 1,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+  `count` int(11) NULL DEFAULT 0,
+  `u_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `u_id`(`u_id`) USING BTREE,
+  CONSTRAINT `topic_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of topic
 -- ----------------------------
-INSERT INTO `topic` VALUES (1, '话题名称', '话题简介', 'topic/1.mp4', '2020-03-06 22:42:57', 1);
+INSERT INTO `topic` VALUES (1, '话题名称', '话题简介', 'topic/1.mp4', '2020-03-06 22:42:57', 1, 1);
+
+-- ----------------------------
+-- Table structure for topic_join
+-- ----------------------------
+DROP TABLE IF EXISTS `topic_join`;
+CREATE TABLE `topic_join`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `u_id` int(11) NOT NULL,
+  `c_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
+  `topic_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `u_id`(`u_id`) USING BTREE,
+  INDEX `topic_id`(`topic_id`) USING BTREE,
+  CONSTRAINT `topic_join_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `topic_join_ibfk_2` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of topic_join
+-- ----------------------------
+INSERT INTO `topic_join` VALUES (1, 1, '2020-03-13 16:10:53', 1);
 
 -- ----------------------------
 -- Table structure for user
@@ -265,7 +289,7 @@ CREATE TABLE `user`  (
   `fashion` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
   `medal` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
   PRIMARY KEY (`u_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
@@ -284,7 +308,7 @@ CREATE TABLE `version`  (
   `url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
   `detail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of version
@@ -315,7 +339,7 @@ CREATE TABLE `video`  (
   INDEX `t_id`(`t_id`) USING BTREE,
   CONSTRAINT `video_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `video_ibfk_2` FOREIGN KEY (`t_id`) REFERENCES `template_info` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of video
@@ -336,7 +360,7 @@ CREATE TABLE `visitor`  (
   INDEX `up_id`(`up_id`) USING BTREE,
   CONSTRAINT `visitor_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `visitor_ibfk_2` FOREIGN KEY (`up_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of visitor
@@ -407,6 +431,28 @@ DROP TRIGGER IF EXISTS `likes_delete`;
 delimiter ;;
 CREATE TRIGGER `likes_delete` AFTER DELETE ON `likes` FOR EACH ROW BEGIN
 	UPDATE video SET count_likes=count_likes-1 WHERE id=old.video_id;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table topic_join
+-- ----------------------------
+DROP TRIGGER IF EXISTS `topic_join_insert`;
+delimiter ;;
+CREATE TRIGGER `topic_join_insert` AFTER INSERT ON `topic_join` FOR EACH ROW BEGIN
+	UPDATE topic SET count=count+1 WHERE id=new.topic_id;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table topic_join
+-- ----------------------------
+DROP TRIGGER IF EXISTS `topic_join_delete`;
+delimiter ;;
+CREATE TRIGGER `topic_join_delete` AFTER DELETE ON `topic_join` FOR EACH ROW BEGIN
+	UPDATE topic SET count=count-1 WHERE id=old.topic_id;
 END
 ;;
 delimiter ;

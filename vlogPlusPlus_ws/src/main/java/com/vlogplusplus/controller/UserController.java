@@ -43,3 +43,4 @@ public class UserController {
                 user.getImage(),user.getSex(),user.getBirthday(),user.getFashion(),user.getU_id());
     }
 }
+//zs

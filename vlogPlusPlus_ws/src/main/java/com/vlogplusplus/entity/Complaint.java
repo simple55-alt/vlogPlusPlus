@@ -1,10 +1,12 @@
 package com.vlogplusplus.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 public class Complaint {
     private int id;
     private int u_id;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date c_time;
     private String var;
 

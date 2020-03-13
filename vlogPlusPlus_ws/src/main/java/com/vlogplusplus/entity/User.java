@@ -1,5 +1,6 @@
 package com.vlogplusplus.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 public class User {
@@ -14,6 +15,7 @@ public class User {
     private int count_fan;
     private int count_follow;
     private byte sex;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date birthday;
     private String fashion;
     private String medal;

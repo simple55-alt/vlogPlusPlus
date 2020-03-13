@@ -3,12 +3,12 @@ package com.vlogplusplus.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
-public class Visitor {
+public class Topic_join {
     private int id;
     private int u_id;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date c_time;
-    private int up_id;
+    private int topic_id;
 
     public int getId() {
         return id;
@@ -34,11 +34,11 @@ public class Visitor {
         this.c_time = c_time;
     }
 
-    public int getUp_id() {
-        return up_id;
+    public int getTopic_id() {
+        return topic_id;
     }
 
-    public void setUp_id(int up_id) {
-        this.up_id = up_id;
+    public void setTopic_id(int topic_id) {
+        this.topic_id = topic_id;
     }
 }

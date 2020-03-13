@@ -1,5 +1,6 @@
 package com.vlogplusplus.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 public class Activity {
@@ -7,10 +8,13 @@ public class Activity {
     private String title;
     private String type;
     private String var;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date begin_time;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date end_time;
     private String method;
     private String image;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date c_time;
 
     public int getId() {

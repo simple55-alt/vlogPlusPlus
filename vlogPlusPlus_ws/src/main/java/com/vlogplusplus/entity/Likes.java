@@ -1,11 +1,13 @@
 package com.vlogplusplus.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 public class Likes {
     private int id;
     private int u_id;
     private int video_id;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date c_time;
 
     public int getId() {

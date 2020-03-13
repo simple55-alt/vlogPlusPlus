@@ -1,5 +1,6 @@
 package com.vlogplusplus.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 public class Video {
@@ -11,6 +12,7 @@ public class Video {
     private String content;
     private int u_id;
     private int t_id;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date c_time;
     private int count_likes;
     private int count_share;

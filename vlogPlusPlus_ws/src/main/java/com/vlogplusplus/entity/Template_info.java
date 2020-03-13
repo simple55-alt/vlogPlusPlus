@@ -1,5 +1,6 @@
 package com.vlogplusplus.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 public class Template_info {
@@ -8,6 +9,7 @@ public class Template_info {
     private String summary;
     private String detail;
     private int u_id;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date c_time;
 
     public int getId() {

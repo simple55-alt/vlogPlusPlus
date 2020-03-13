@@ -1,10 +1,12 @@
 package com.vlogplusplus.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 public class Draft {
     private int id;
     private int video_id;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date u_time;
     private String draft_image;
 

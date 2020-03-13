@@ -29,4 +29,10 @@ public class ActivityController {
     private List<Activity> list_new(@RequestParam int n){
         return iActivityService.list_new(n);
     }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    private void update(@RequestBody Activity activity) {
+        iActivityService.update(activity.getTitle(), activity.getType(), activity.getVar(), activity.getBegin_time(),
+                activity.getEnd_time(), activity.getMethod(), activity.getImage(), activity.getId());
+    }
 }

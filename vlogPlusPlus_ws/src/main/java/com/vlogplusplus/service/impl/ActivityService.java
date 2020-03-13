@@ -29,4 +29,11 @@ public class ActivityService implements IActivityService {
     public List<Activity> list_new(int n) {
         return iActivityDao.list_new(n);
     }
+
+    @Override
+    public void update(String title, String type, String var, Date begin_time, Date end_time, String method, String image, int id) {
+        iActivityDao.update(title,type,var,begin_time,end_time,method,image,id);
+    }
+
+
 }

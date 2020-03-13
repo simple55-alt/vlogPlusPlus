@@ -16,5 +16,10 @@
         SELECT * FROM `activity` ORDER BY c_time DESC LIMIT #{n}
     </select>
 
+    <update id="update"  parameterType="com.vlogplusplus.entity.Activity">
+        UPDATE activity SET title=#{title},type=#{type},var=#{var},begin_time=#{begin_time},
+        end_time=#{end_time},method=#{method},image=#{image} WHERE id=#{id}
+    </update>
+
 
 </mapper>

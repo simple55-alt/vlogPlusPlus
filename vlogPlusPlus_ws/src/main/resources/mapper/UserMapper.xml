@@ -23,4 +23,9 @@
     <delete id="del"  parameterType="com.vlogplusplus.entity.User">
         DELETE FROM `user` WHERE u_id=#{u_id}
     </delete>
+
+    <update id="update_detail"  parameterType="com.vlogplusplus.entity.User">
+       UPDATE `user` SET nickname=#{nickname},email=#{email},phone=#{phone},image=#{image},
+       sex=#{sex},birthday=#{birthday},fashion=#{fashion} WHERE u_id=#{u_id}
+    </update>
 </mapper>

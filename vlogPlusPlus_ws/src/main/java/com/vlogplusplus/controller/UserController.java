@@ -36,4 +36,10 @@ public class UserController {
     private void del(@RequestParam int u_id) {
         iUserService.del(u_id);
     }
+
+    @RequestMapping(value = "/update_detail", method = RequestMethod.POST)
+    private void update_detail(@RequestBody User user) {
+        iUserService.update_detail(user.getNickname(),user.getEmail(),user.getPhone(),
+                user.getImage(),user.getSex(),user.getBirthday(),user.getFashion(),user.getU_id());
+    }
 }

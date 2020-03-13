@@ -11,5 +11,7 @@ public interface IUserService {
              String phone, String image, byte sex,  Date birthday, String fashion);
     void update_pass(String password,int u_id);
     void del(int u_id);
+    void update_detail(String nickname, String email,
+                       String phone, String image, byte sex,  Date birthday, String fashion,int u_id);
 
 }

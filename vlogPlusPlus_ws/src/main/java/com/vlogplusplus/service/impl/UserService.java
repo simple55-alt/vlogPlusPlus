@@ -37,4 +37,9 @@ public class UserService implements IUserService {
     public void del(int u_id) {
         iUserDao.del(u_id);
     }
+
+    @Override
+    public void update_detail(String nickname, String email, String phone, String image, byte sex, Date birthday, String fashion, int u_id) {
+        iUserDao.update_detail(nickname,email,phone,image,sex,birthday,fashion,u_id);
+    }
 }

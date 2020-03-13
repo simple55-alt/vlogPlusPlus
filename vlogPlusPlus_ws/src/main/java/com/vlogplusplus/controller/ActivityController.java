@@ -35,4 +35,7 @@ public class ActivityController {
         iActivityService.update(activity.getTitle(), activity.getType(), activity.getVar(), activity.getBegin_time(),
                 activity.getEnd_time(), activity.getMethod(), activity.getImage(), activity.getId());
     }
+
+    @RequestMapping(value = "/del", method = RequestMethod.POST)
+    private void del(@RequestParam int id) { iActivityService.del(id); }
 }

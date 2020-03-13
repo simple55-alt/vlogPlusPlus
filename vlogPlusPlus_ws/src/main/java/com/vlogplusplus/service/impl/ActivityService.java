@@ -35,5 +35,10 @@ public class ActivityService implements IActivityService {
         iActivityDao.update(title,type,var,begin_time,end_time,method,image,id);
     }
 
+    @Override
+    public void del(int id) {
+        iActivityDao.del(id);
+    }
+
 
 }

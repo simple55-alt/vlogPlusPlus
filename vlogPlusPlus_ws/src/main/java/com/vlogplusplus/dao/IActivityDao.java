@@ -17,4 +17,5 @@ public interface IActivityDao {
     void update(@Param("title") String title, @Param("type") String type, @Param("var") String var,
                 @Param("begin_time") Date begin_time,@Param("end_time") Date end_time, @Param("method") String method,
                 @Param("image") String image,@Param("id") int id);
+    void del(@Param("id") int id);
 }

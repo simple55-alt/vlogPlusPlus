@@ -21,5 +21,9 @@
         end_time=#{end_time},method=#{method},image=#{image} WHERE id=#{id}
     </update>
 
+    <delete id="del"  parameterType="com.vlogplusplus.entity.Activity">
+        DELETE FROM activity WHERE id=#{id}
+    </delete>
+
 
 </mapper>

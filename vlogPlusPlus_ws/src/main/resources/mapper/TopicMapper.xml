@@ -4,7 +4,7 @@
     <resultMap id="BaseResultMap" type="com.vlogplusplus.entity.Topic">
     </resultMap>
 
-    <select id="list" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Activity">
+    <select id="list" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Topic">
         SELECT * FROM topic
     </select>
 

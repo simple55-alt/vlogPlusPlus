@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vlogplusplus.dao.IFanDao">
+    <resultMap id="BaseResultMap" type="com.vlogplusplus.entity.Fan">
+    </resultMap>
+    <select id="list_fan" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Fan">
+       SELECT * FROM fan WHERE up_id=#{up_id}
+    </select>
+
+    <select id="list_fellow" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Fan">
+       SELECT * FROM fan WHERE fan_id=#{fan_id}
+    </select>
+
+    <insert id="add_fan" parameterType="com.vlogplusplus.entity.Fan">
+        INSERT INTO fan(fan_id,up_id) VALUES (#{fan_id},#{up_id})
+    </insert>
+
+
+
+</mapper>

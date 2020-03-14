@@ -15,6 +15,10 @@
         INSERT INTO fan(fan_id,up_id) VALUES (#{fan_id},#{up_id})
     </insert>
 
+    <delete id="del_fan" parameterType="com.vlogplusplus.entity.Fan">
+        DELETE FROM fan WHERE fan_id=#{fan_id} AND up_id=#{up_id}
+    </delete>
+
 
 
 </mapper>

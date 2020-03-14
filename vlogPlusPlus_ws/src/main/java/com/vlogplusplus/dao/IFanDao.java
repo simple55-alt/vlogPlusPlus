@@ -12,4 +12,5 @@ public interface IFanDao {
     List<Fan> list_fan(@Param("up_id") int up_id);
     List<Fan> list_fellow(@Param("fan_id") int fan_id);
     void add_fan(@Param("fan_id") int fan_id,@Param("up_id") int up_id);
+    void del_fan(@Param("fan_id") int fan_id,@Param("up_id") int up_id);
 }

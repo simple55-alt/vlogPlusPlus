@@ -31,4 +31,9 @@ public class FanController {
     private void add_fan(@RequestParam int fan_id ,int up_id){
         iFanService.add_fan(fan_id,up_id);
     }
+
+    @RequestMapping(value = "/del_fan",method = RequestMethod.POST)
+    private void del_fan(@RequestParam int fan_id ,int up_id){
+        iFanService.del_fan(fan_id,up_id);
+    }
 }

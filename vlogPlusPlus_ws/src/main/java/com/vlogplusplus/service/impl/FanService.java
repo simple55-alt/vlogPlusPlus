@@ -29,4 +29,9 @@ public class FanService implements IFanService {
     public void add_fan(int fan_id, int up_id) {
         iFanDao.add_fan(fan_id,up_id);
     }
+
+    @Override
+    public void del_fan(int fan_id, int up_id) {
+        iFanDao.del_fan(fan_id,up_id);
+    }
 }

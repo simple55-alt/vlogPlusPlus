@@ -4,10 +4,9 @@ package com.vlogplusplus.controller;
 import com.vlogplusplus.entity.Comment;
 import com.vlogplusplus.service.ICommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/comment")
@@ -19,5 +18,10 @@ public class CommentController {
     private void add(@RequestBody Comment comment){
         iCommentService.add(comment.getU_id(),comment.getTarget_id(),comment.getVar(),comment.getImage(),
                 comment.getCount());
+    }
+
+    @RequestMapping(value = "/listByUid", method = RequestMethod.POST)
+    private List<Comment> listByUid(@RequestParam int u_id){
+        return iCommentService.listByUid(u_id);
     }
 }

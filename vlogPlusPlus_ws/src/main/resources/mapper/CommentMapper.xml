@@ -8,5 +8,9 @@
          VALUES (#{u_id},#{target_id},#{var},#{image},#{count})
     </insert>
 
+    <select id="listByUid" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Comment">
+        SELECT * FROM `comment`  WHERE u_id=#{u_id} ORDER BY c_time DESC
+    </select>
+
 
 </mapper>

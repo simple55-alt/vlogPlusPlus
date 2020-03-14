@@ -23,4 +23,19 @@ public class CommentService implements ICommentService {
     public List<Comment> listByUid(int u_id) {
         return iCommentDao.listByUid(u_id);
     }
+
+    @Override
+    public List<Comment> listByVideo(int target_id) {
+        return iCommentDao.listByVideo(target_id);
+    }
+
+    @Override
+    public List<Comment> listByTemplate(int target_id) {
+        return iCommentDao.listByTemplate(target_id);
+    }
+
+    @Override
+    public void del(int id) {
+        iCommentDao.del(id);
+    }
 }

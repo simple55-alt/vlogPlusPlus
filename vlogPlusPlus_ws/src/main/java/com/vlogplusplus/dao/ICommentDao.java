@@ -12,4 +12,7 @@ public interface ICommentDao {
     void add(@Param("u_id") int u_id,@Param("target_id") int target_id,
              @Param("var") String var,@Param("image") String image,@Param("count") int count);
     List<Comment> listByUid(@Param("u_id") int u_id);
+    List<Comment> listByVideo(@Param("target_id") int target_id);
+    List<Comment> listByTemplate(@Param("target_id") int target_id);
+    void del(@Param("id") int id);
 }

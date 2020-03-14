@@ -12,5 +12,17 @@
         SELECT * FROM `comment`  WHERE u_id=#{u_id} ORDER BY c_time DESC
     </select>
 
+    <select id="listByVideo" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Comment">
+        SELECT * FROM `comment`  WHERE target_id=#{target_id}
+    </select>
+
+    <select id="listByTemplate" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Comment">
+        SELECT * FROM `comment`  WHERE target_id=#{target_id}
+    </select>
+
+    <delete id="del"  parameterType="com.vlogplusplus.entity.Comment">
+        DELETE FROM `comment` WHERE id=#{id}
+    </delete>
+
 
 </mapper>

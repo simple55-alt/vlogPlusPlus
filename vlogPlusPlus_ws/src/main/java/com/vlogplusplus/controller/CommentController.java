@@ -24,4 +24,17 @@ public class CommentController {
     private List<Comment> listByUid(@RequestParam int u_id){
         return iCommentService.listByUid(u_id);
     }
+
+    @RequestMapping(value = "/listByVideo", method = RequestMethod.POST)
+    private List<Comment> listByVideo(@RequestParam int target_id){
+        return iCommentService.listByVideo(target_id);
+    }
+
+    @RequestMapping(value = "/listByTemplate", method = RequestMethod.POST)
+    private List<Comment> listByTemplate(@RequestParam int target_id){
+        return iCommentService.listByTemplate(-target_id);
+    }
+
+    @RequestMapping(value = "/del", method = RequestMethod.POST)
+    private void del(@RequestParam int id) { iCommentService.del(id); }
 }

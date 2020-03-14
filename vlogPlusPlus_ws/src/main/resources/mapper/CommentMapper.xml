@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vlogplusplus.dao.ICommentDao">
+    <resultMap id="BaseResultMap" type="com.vlogplusplus.entity.Comment">
+    </resultMap>
+    <insert id="add" parameterType="com.vlogplusplus.entity.Comment">
+        INSERT INTO `comment`(u_id,target_id,var,image,count)
+         VALUES (#{u_id},#{target_id},#{var},#{image},#{count})
+    </insert>
+
+
+</mapper>

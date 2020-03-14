@@ -20,4 +20,5 @@ public interface IVideoDao {
                 @Param("t_id") int t_id, @Param("count_likes") int count_likes,
                 @Param("count_share") int count_share, @Param("count_favorite") int count_favorite,
                 @Param("count_watch") int count_watch, @Param("state") byte state, @Param("id") int id);
+    void del(@Param("id") int id);
 }

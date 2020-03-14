@@ -21,5 +21,9 @@
         count_watch=#{count_watch},state=#{state} WHERE id=#{id}
     </update>
 
+    <delete id="del"  parameterType="com.vlogplusplus.entity.Video">
+        DELETE FROM video WHERE id=#{id}
+    </delete>
+
 
 </mapper>

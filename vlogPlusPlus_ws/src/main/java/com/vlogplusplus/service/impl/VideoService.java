@@ -30,4 +30,9 @@ public class VideoService implements IVideoService {
         iVideoDao.update(title,type,var,subtitle,content,u_id,t_id,count_likes,count_share,count_favorite,
                 count_watch,state,id);
     }
+
+    @Override
+    public void del(int id) {
+        iVideoDao.del(id);
+    }
 }

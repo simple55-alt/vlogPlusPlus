@@ -34,4 +34,9 @@ public class VideoController {
                 video.getCount_share(),video.getCount_favorite(),video.getCount_watch(),
                 video.getState(),video.getId());
     }
+
+    @RequestMapping(value = "/del", method = RequestMethod.POST)
+    private void del(@RequestParam int id){
+        iVideoService.del(id);
+    }
 }

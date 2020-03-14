@@ -26,4 +26,12 @@ public class VideoController {
                 video.getCount_share(),video.getCount_favorite(),video.getCount_watch(),
                 video.getState());
     }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    private void update(@RequestBody Video video){
+        iVideoService.update(video.getTitle(),video.getType(), video.getVar(),video.getSubtitle(),
+                video.getContent(),video.getU_id(),video.getT_id(),video.getCount_likes(),
+                video.getCount_share(),video.getCount_favorite(),video.getCount_watch(),
+                video.getState(),video.getId());
+    }
 }

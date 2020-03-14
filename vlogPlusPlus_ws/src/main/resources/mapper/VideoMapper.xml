@@ -14,5 +14,12 @@
         #{u_id},#{t_id},#{count_likes},#{count_share},#{count_favorite},#{count_watch},#{state})
     </insert>
 
+    <update id="update" parameterType="com.vlogplusplus.entity.Video">
+        UPDATE video SET title=#{title},type=#{type},var=#{var},subtitle=#{subtitle},
+        content=#{content},u_id=#{u_id},t_id=#{t_id},count_likes=#{count_likes},
+        count_share=#{count_share},count_favorite=#{count_favorite},
+        count_watch=#{count_watch},state=#{state} WHERE id=#{id}
+    </update>
+
 
 </mapper>

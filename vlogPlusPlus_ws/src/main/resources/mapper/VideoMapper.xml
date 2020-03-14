@@ -7,5 +7,12 @@
         SELECT * FROM video WHERE id=#{id}
     </select>
 
+    <insert id="add" parameterType="com.vlogplusplus.entity.Video">
+        INSERT INTO video(title,type,var,subtitle,content,u_id,t_id,
+        count_likes,count_share,count_favorite,count_watch,state)
+        VALUES(#{title},#{type},#{var},#{subtitle},#{content},
+        #{u_id},#{t_id},#{count_likes},#{count_share},#{count_favorite},#{count_watch},#{state})
+    </insert>
+
 
 </mapper>

@@ -18,4 +18,10 @@ public class VideoService implements IVideoService {
     public List<Video> get_video(int id) {
         return iVideoDao.get_video(id);
     }
+
+    @Override
+    public void add(String title, String type, String var, String subtitle, String content, int u_id, int t_id, int count_likes, int count_share, int count_favorite, int count_watch, byte state) {
+        iVideoDao.add(title,type,var,subtitle,content,u_id,t_id,count_likes,count_share,count_favorite,
+                count_watch,state);
+    }
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vlogplusplus.dao.IDraftDao">
+    <resultMap id="BaseResultMap" type="com.vlogplusplus.entity.Draft">
+    </resultMap>
+    <select id="listByVideo" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Draft">
+        SELECT * FROM draft where video_id=#{video_id} ORDER BY u_time DESC
+    </select>
+
+    <select id="get_id" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Draft">
+        SELECT * FROM draft where id=#{id}
+    </select>
+
+    <insert id="add" parameterType="com.vlogplusplus.entity.Draft">
+        INSERT INTO draft(video_id,draft_image) VALUES(#{video_id},#{draft_image})
+    </insert>
+
+    <update id="update"  parameterType="com.vlogplusplus.entity.Draft">
+        UPDATE draft SET video_id=#{video_id},draft_image=#{draft_image} WHERE id=#{id}
+    </update>
+
+    <delete id="del"  parameterType="com.vlogplusplus.entity.Draft">
+        DELETE FROM draft WHERE id=#{id}
+    </delete>
+
+</mapper>

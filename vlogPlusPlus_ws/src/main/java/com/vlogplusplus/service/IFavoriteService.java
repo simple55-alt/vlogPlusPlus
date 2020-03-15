@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IFavoriteService {
     List<Favorite> list(int u_id);
+    void add(int u_id, int video_id);
 }

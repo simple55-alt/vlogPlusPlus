@@ -18,4 +18,9 @@ public class FavoriteService implements IFavoriteService {
     public List<Favorite> list(int u_id) {
         return iFavoriteDao.list(u_id);
     }
+
+    @Override
+    public void add(int u_id, int video_id) {
+        iFavoriteDao.add(u_id,video_id);
+    }
 }

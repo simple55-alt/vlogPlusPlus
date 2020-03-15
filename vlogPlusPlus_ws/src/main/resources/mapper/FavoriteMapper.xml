@@ -7,6 +7,10 @@
         SELECT * FROM favorite WHERE u_id=#{u_id} ORDER BY c_time DESC
     </select>
 
+    <insert id="add" parameterType="com.vlogplusplus.entity.Favorite">
+        INSERT INTO favorite(u_id,video_id) VALUES (#{u_id},#{video_id})
+    </insert>
+
 
 
 </mapper>

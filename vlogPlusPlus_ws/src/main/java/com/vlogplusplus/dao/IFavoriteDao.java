@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface IFavoriteDao {
     List<Favorite> list(@Param("u_id") int u_id);
+    void add(@Param("u_id") int u_id, @Param("video_id") int video_id);
 }

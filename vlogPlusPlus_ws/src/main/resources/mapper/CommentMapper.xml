@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vlogplusplus.dao.ICommentDao">
+    <resultMap id="BaseResultMap" type="com.vlogplusplus.entity.Comment">
+    </resultMap>
+    <insert id="add" parameterType="com.vlogplusplus.entity.Comment">
+        INSERT INTO `comment`(u_id,target_id,var,image,count)
+         VALUES (#{u_id},#{target_id},#{var},#{image},#{count})
+    </insert>
+
+    <select id="listByUid" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Comment">
+        SELECT * FROM `comment`  WHERE u_id=#{u_id} ORDER BY c_time DESC
+    </select>
+
+    <select id="listByVideo" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Comment">
+        SELECT * FROM `comment`  WHERE target_id=#{target_id}
+    </select>
+
+    <select id="listByTemplate" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Comment">
+        SELECT * FROM `comment`  WHERE target_id=#{target_id}
+    </select>
+
+    <delete id="del"  parameterType="com.vlogplusplus.entity.Comment">
+        DELETE FROM `comment` WHERE id=#{id}
+    </delete>
+
+
+</mapper>

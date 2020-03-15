@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vlogplusplus.dao.IVideoDao">
+    <resultMap id="BaseResultMap" type="com.vlogplusplus.entity.Video">
+    </resultMap>
+    <select id="get_video" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Video">
+        SELECT * FROM video WHERE id=#{id}
+    </select>
+
+    <insert id="add" parameterType="com.vlogplusplus.entity.Video">
+        INSERT INTO video(title,type,var,subtitle,content,u_id,t_id,
+        count_likes,count_share,count_favorite,count_watch,state)
+        VALUES(#{title},#{type},#{var},#{subtitle},#{content},
+        #{u_id},#{t_id},#{count_likes},#{count_share},#{count_favorite},#{count_watch},#{state})
+    </insert>
+
+    <update id="update" parameterType="com.vlogplusplus.entity.Video">
+        UPDATE video SET title=#{title},type=#{type},var=#{var},subtitle=#{subtitle},
+        content=#{content},u_id=#{u_id},t_id=#{t_id},count_likes=#{count_likes},
+        count_share=#{count_share},count_favorite=#{count_favorite},
+        count_watch=#{count_watch},state=#{state} WHERE id=#{id}
+    </update>
+
+    <delete id="del"  parameterType="com.vlogplusplus.entity.Video">
+        DELETE FROM video WHERE id=#{id}
+    </delete>
+
+
+</mapper>

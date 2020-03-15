@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vlogplusplus.dao.ITopic_joinDao">
+    <resultMap id="BaseResultMap" type="com.vlogplusplus.entity.Topic_join">
+    </resultMap>
+    <select id="lisByTopic" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Topic_join">
+        SELECT * FROM topic_join WHERE topic_id=#{topic_id}
+    </select>
+
+    <select id="lisByUid" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Topic_join">
+        SELECT * FROM topic_join WHERE u_id=#{u_id}
+    </select>
+
+    <insert id="add" parameterType="com.vlogplusplus.entity.Topic_join">
+        INSERT INTO topic_join(u_id,topic_id) VALUES (#{u_id},#{topic_id})
+    </insert>
+
+    <delete id="del"  parameterType="com.vlogplusplus.entity.Topic_join">
+        DELETE FROM topic_join WHERE id=#{id}
+    </delete>
+</mapper>

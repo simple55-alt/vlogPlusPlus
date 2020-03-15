@@ -1,14 +1,12 @@
 package com.vlogplusplus.controller;
 
 
-import com.vlogplusplus.entity.Activity;
 import com.vlogplusplus.entity.Letter;
 import com.vlogplusplus.service.ILetterService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/letter")
@@ -20,4 +18,11 @@ public class LetterController {
     private void add(@RequestBody Letter letter){
         iLetterService.add(letter.getSender_id(),letter.getReceiver_id(),letter.getVar(),letter.getState());
     }
+
+    @RequestMapping(value = "/get_news", method = RequestMethod.POST)
+    private List<Letter> get_news(@RequestParam int receiver_id ){
+        return iLetterService.get_news(receiver_id);
+    }
+
+
 }

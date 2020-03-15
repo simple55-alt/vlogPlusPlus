@@ -20,4 +20,8 @@
         SELECT * FROM letter where  sender_id=#{sender_id}
     </select>
 
+    <update id="ack"  parameterType="com.vlogplusplus.entity.Letter">
+        UPDATE letter set state=1 WHERE id=#{id}
+    </update>
+
 </mapper>

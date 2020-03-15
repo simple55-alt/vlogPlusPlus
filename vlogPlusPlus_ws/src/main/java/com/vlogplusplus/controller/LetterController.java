@@ -34,5 +34,10 @@ public class LetterController {
         return iLetterService.listForSender(sender_id);
     }
 
+    @RequestMapping(value = "/ack", method = RequestMethod.POST)
+    private void ack(@RequestParam int id ){
+        iLetterService.ack(id);
+    }
+
 
 }

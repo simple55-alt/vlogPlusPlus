@@ -8,4 +8,5 @@ public interface ILetterService {
     List<Letter> get_news(int receiver_id);
     List<Letter> listForReceiver(int receiver_id);
     List<Letter> listForSender(int sender_id);
+    void ack(int id);
 }

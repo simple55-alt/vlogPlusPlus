@@ -33,4 +33,9 @@ public class LetterService implements ILetterService {
     public List<Letter> listForSender(int sender_id) {
         return iLetterDao.listForSender(sender_id);
     }
+
+    @Override
+    public void ack(int id) {
+        iLetterDao.ack(id);
+    }
 }

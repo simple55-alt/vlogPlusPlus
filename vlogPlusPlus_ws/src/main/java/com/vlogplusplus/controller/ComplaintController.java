@@ -1,6 +1,5 @@
 package com.vlogplusplus.controller;
 
-import com.vlogplusplus.entity.Activity;
 import com.vlogplusplus.entity.Complaint;
 import com.vlogplusplus.service.IComplaintService;
 import org.springframework.beans.factory.annotation.Autowired;

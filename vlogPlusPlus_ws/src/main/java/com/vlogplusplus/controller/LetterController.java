@@ -24,5 +24,15 @@ public class LetterController {
         return iLetterService.get_news(receiver_id);
     }
 
+    @RequestMapping(value = "/listForReceiver", method = RequestMethod.POST)
+    private List<Letter> listForReceiver(@RequestParam int receiver_id ){
+        return iLetterService.listForReceiver(receiver_id);
+    }
+
+    @RequestMapping(value = "/listForSender", method = RequestMethod.POST)
+    private List<Letter> listForSender(@RequestParam int sender_id ){
+        return iLetterService.listForSender(sender_id);
+    }
+
 
 }

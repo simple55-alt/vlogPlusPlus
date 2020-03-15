@@ -23,4 +23,14 @@ public class LetterService implements ILetterService {
     public List<Letter> get_news(int receiver_id) {
         return iLetterDao.get_news(receiver_id);
     }
+
+    @Override
+    public List<Letter> listForReceiver(int receiver_id) {
+        return iLetterDao.listForReceiver(receiver_id);
+    }
+
+    @Override
+    public List<Letter> listForSender(int sender_id) {
+        return iLetterDao.listForSender(sender_id);
+    }
 }

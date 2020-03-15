@@ -26,13 +26,13 @@ public class CommentController {
     }
 
     @RequestMapping(value = "/listByVideo", method = RequestMethod.POST)
-    private List<Comment> listByVideo(@RequestParam int target_id){
-        return iCommentService.listByVideo(target_id);
+    private List<Comment> listByVideo(@RequestParam int video){
+        return iCommentService.listByVideo(video);
     }
 
     @RequestMapping(value = "/listByTemplate", method = RequestMethod.POST)
-    private List<Comment> listByTemplate(@RequestParam int target_id){
-        return iCommentService.listByTemplate(-target_id);
+    private List<Comment> listByTemplate(@RequestParam int template){
+        return iCommentService.listByTemplate(-template);
     }
 
     @RequestMapping(value = "/del", method = RequestMethod.POST)

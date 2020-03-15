@@ -23,4 +23,9 @@ public class FavoriteService implements IFavoriteService {
     public void add(int u_id, int video_id) {
         iFavoriteDao.add(u_id,video_id);
     }
+
+    @Override
+    public void del(int id) {
+        iFavoriteDao.del(id);
+    }
 }

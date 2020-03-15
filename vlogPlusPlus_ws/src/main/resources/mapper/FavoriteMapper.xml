@@ -11,6 +11,10 @@
         INSERT INTO favorite(u_id,video_id) VALUES (#{u_id},#{video_id})
     </insert>
 
+    <delete id="del"  parameterType="com.vlogplusplus.entity.Favorite">
+        DELETE FROM favorite WHERE id=#{id}
+    </delete>
+
 
 
 </mapper>

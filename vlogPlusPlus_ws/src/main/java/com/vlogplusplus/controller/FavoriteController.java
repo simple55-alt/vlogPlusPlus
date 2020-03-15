@@ -23,4 +23,9 @@ public class FavoriteController {
     private void add(@RequestBody Favorite favorite){
          iFavoriteService.add(favorite.getU_id(),favorite.getVideo_id());
     }
+
+    @RequestMapping(value = "/del", method = RequestMethod.POST)
+    private void del(@RequestParam int id){
+        iFavoriteService.del(id);
+    }
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vlogplusplus.dao.ILikesDao">
+    <resultMap id="BaseResultMap" type="com.vlogplusplus.entity.Likes">
+    </resultMap>
+    <select id="list" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Likes">
+        SELECT * FROM likes WHERE u_id=#{u_id} ORDER BY c_time DESC LIMIT #{n}
+    </select>
+
+    <insert id="add" parameterType="com.vlogplusplus.entity.Likes">
+        INSERT INTO likes(u_id,video_id) VALUES (#{u_id},#{video_id})
+    </insert>
+
+    <delete id="del"  parameterType="com.vlogplusplus.entity.Likes">
+        DELETE FROM likes WHERE id=#{id}
+    </delete>
+
+
+
+</mapper>

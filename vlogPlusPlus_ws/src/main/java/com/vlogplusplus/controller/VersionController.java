@@ -1,6 +1,5 @@
 package com.vlogplusplus.controller;
 
-import com.vlogplusplus.entity.Activity;
 import com.vlogplusplus.entity.Version;
 import com.vlogplusplus.service.IVersionService;
 import org.springframework.beans.factory.annotation.Autowired;

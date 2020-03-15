@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vlogplusplus.dao.ITemplate_infoDao">
+    <resultMap id="BaseResultMap" type="com.vlogplusplus.entity.Template_info">
+    </resultMap>
+    <select id="list" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Template_info">
+        SELECT * FROM template_info
+    </select>
+
+    <insert id="add" parameterType="com.vlogplusplus.entity.Template_info">
+        INSERT INTO template_info(name,summary,detail,u_id)
+        VALUES(#{name},#{summary},#{detail},#{u_id})
+    </insert>
+
+    <update id="update"  parameterType="com.vlogplusplus.entity.Template_info">
+        UPDATE template_info SET name=#{name},summary=#{summary},
+        detail=#{detail},u_id=#{u_id} WHERE id=#{id}
+    </update>
+
+    <delete id="del"  parameterType="com.vlogplusplus.entity.Template_info">
+        DELETE FROM template_info WHERE id=#{id}
+    </delete>
+
+
+</mapper>

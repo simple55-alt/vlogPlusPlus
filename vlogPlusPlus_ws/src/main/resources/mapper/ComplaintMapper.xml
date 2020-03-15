@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vlogplusplus.dao.IComplaintDao">
+    <resultMap id="BaseResultMap" type="com.vlogplusplus.entity.Complaint">
+    </resultMap>
+    <select id="list" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Complaint">
+        SELECT * FROM complaint
+    </select>
+
+    <insert id="add" parameterType="com.vlogplusplus.entity.Complaint">
+        INSERT INTO complaint(u_id,var) VALUES(#{u_id},#{var})
+    </insert>
+
+</mapper>

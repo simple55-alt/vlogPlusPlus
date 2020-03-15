@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vlogplusplus.dao.ILetterDao">
+    <resultMap id="BaseResultMap" type="com.vlogplusplus.entity.Letter">
+    </resultMap>
+    <insert id="add" parameterType="com.vlogplusplus.entity.Letter">
+        INSERT INTO letter(sender_id,receiver_id,var,state)
+        VALUES (#{sender_id},#{receiver_id},#{var},#{state})
+    </insert>
+
+</mapper>

@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 13/03/2020 16:16:07
+ Date: 15/03/2020 22:16:30
 */
 
 SET NAMES utf8mb4;
@@ -194,7 +194,7 @@ CREATE TABLE `search`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `var` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
   `c_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
-  `count` int(11) NULL DEFAULT 0,
+  `count` int(11) NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
@@ -202,8 +202,9 @@ CREATE TABLE `search`  (
 -- Records of search
 -- ----------------------------
 INSERT INTO `search` VALUES (1, '珊珊姐姐', '2020-03-06 23:36:50', 5);
-INSERT INTO `search` VALUES (2, '草草', '2020-03-06 23:36:58', 3);
+INSERT INTO `search` VALUES (2, '草草', '2020-03-06 23:36:58', 5);
 INSERT INTO `search` VALUES (3, '志远帅哥', '2020-03-06 23:37:13', 100);
+INSERT INTO `search` VALUES (4, 'test', '2020-03-15 22:14:08', 1);
 
 -- ----------------------------
 -- Table structure for template_info
@@ -241,7 +242,7 @@ CREATE TABLE `topic`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `u_id`(`u_id`) USING BTREE,
   CONSTRAINT `topic_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of topic
@@ -262,7 +263,7 @@ CREATE TABLE `topic_join`  (
   INDEX `topic_id`(`topic_id`) USING BTREE,
   CONSTRAINT `topic_join_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `topic_join_ibfk_2` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of topic_join
@@ -289,13 +290,14 @@ CREATE TABLE `user`  (
   `fashion` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
   `medal` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
   PRIMARY KEY (`u_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (1, 'xfs', 'e10adc3949ba59abbe56e057f20f883e', '想放松', 'cnxfs@qq.com', '13082808309', 'userhead/1.jpg', 0, 1, 0, 1, '1999-01-06 22:39:43', '只有想不到，没有做不到', '小萌星');
 INSERT INTO `user` VALUES (2, 'test', 'e10adc3949ba59abbe56e057f20f883e', '测试账号', NULL, NULL, NULL, 0, 0, 1, 0, NULL, NULL, NULL);
+INSERT INTO `user` VALUES (3, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '管理员', '', '', '', 0, 0, 0, 0, '1999-05-12 20:20:20', '', NULL);
 
 -- ----------------------------
 -- Table structure for version

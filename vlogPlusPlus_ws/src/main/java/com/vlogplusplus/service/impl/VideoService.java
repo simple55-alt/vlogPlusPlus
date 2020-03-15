@@ -18,7 +18,7 @@ public class VideoService implements IVideoService {
     private IVideoDao iVideoDao;
 
     @Override
-    public List<Video> get_video(int id) {
+    public Video get_video(int id) {
         return iVideoDao.get_video(id);
     }
 

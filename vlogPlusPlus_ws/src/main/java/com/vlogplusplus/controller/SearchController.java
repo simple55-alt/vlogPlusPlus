@@ -20,6 +20,6 @@ public class SearchController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     private void add(@RequestBody Search search){
-        iSearchService.add(search.getVar(),search.getCount());
+        iSearchService.add(search.getVar());
     }
 }

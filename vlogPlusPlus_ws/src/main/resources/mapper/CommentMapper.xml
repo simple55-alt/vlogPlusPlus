@@ -13,11 +13,11 @@
     </select>
 
     <select id="listByVideo" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Comment">
-        SELECT * FROM `comment`  WHERE target_id=#{target_id}
+        SELECT * FROM `comment`  WHERE target_id=#{target_id} ORDER BY c_time DESC
     </select>
 
     <select id="listByTemplate" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Comment">
-        SELECT * FROM `comment`  WHERE target_id=#{target_id}
+        SELECT * FROM `comment`  WHERE target_id=#{target_id} ORDER BY c_time DESC
     </select>
 
     <delete id="del"  parameterType="com.vlogplusplus.entity.Comment">

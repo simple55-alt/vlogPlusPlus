@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface IVideoDao {
-    List<Video> get_video(@Param("id") int id);
+    Video get_video(@Param("id") int id);
     void add(@Param("title") String title, @Param("type") String type, @Param("var") String var,
              @Param("subtitle") String subtitle, @Param("content") String content, @Param("u_id") int u_id,
              @Param("t_id") int t_id, @Param("count_likes") int count_likes,

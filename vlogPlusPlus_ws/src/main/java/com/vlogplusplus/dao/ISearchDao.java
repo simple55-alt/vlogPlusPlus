@@ -9,5 +9,7 @@ import java.util.List;
 @Repository
 public interface ISearchDao {
     List<Search> list(@Param("n") int n);
-    void add(@Param("var") String var,@Param("count") int count);
+    void add(@Param("var") String var);
+    Search search(@Param("var") String var);
+    void count(@Param("id") int id);
 }

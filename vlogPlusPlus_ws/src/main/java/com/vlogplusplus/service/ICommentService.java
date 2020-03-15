@@ -1,6 +1,8 @@
 package com.vlogplusplus.service;
 
 import com.vlogplusplus.entity.Comment;
+import com.vlogplusplus.entity.Resp;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -10,4 +12,5 @@ public interface ICommentService {
     List<Comment> listByVideo(int target_id);
     List<Comment> listByTemplate(int target_id);
     void del(int id);
+    Resp<String> upload_img(MultipartFile file);
 }

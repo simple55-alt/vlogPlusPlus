@@ -2,9 +2,11 @@ package com.vlogplusplus.controller;
 
 
 import com.vlogplusplus.entity.Activity;
+import com.vlogplusplus.entity.Resp;
 import com.vlogplusplus.service.IActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -38,4 +40,9 @@ public class ActivityController {
 
     @RequestMapping(value = "/del", method = RequestMethod.POST)
     private void del(@RequestParam int id) { iActivityService.del(id); }
+
+    @RequestMapping(value = "/upload_img", method = RequestMethod.POST)
+    private Resp<String> upload_img(@RequestParam("file") MultipartFile file){
+        return iActivityService.upload_img(file); //上传文件
+    }
 }

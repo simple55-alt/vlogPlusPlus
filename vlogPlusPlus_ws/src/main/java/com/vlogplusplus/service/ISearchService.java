@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ISearchService {
     List<Search> list(int n);
-    void add(String var, int count);
+    void add(String var);
 }

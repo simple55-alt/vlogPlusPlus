@@ -7,9 +7,15 @@
         SELECT * FROM search ORDER BY count DESC LIMIT #{n}
     </select>
 
+    <select id="search" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Search">
+        SELECT * FROM search where var=#{var}
+    </select>
+
     <insert id="add" parameterType="com.vlogplusplus.entity.Search">
-        INSERT INTO search(var,count) VALUES (#{var},#{count})
+        INSERT INTO search(var) VALUES (#{var})
     </insert>
 
-
+    <update id="count" parameterType="com.vlogplusplus.entity.Search">
+        UPDATE search set count=count+1 where id=#{id}
+    </update>
 </mapper>

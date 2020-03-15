@@ -1,11 +1,14 @@
 package com.vlogplusplus.service.impl;
 
 import com.vlogplusplus.dao.IUserDao;
+import com.vlogplusplus.entity.Resp;
 import com.vlogplusplus.entity.User;
 import com.vlogplusplus.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.Date;
 
 @Service
@@ -41,5 +44,26 @@ public class UserService implements IUserService {
     @Override
     public void update_detail(String nickname, String email, String phone, String image, byte sex, Date birthday, String fashion, int u_id) {
         iUserDao.update_detail(nickname,email,phone,image,sex,birthday,fashion,u_id);
+    }
+
+    @Override
+    public Resp<String> upload_img(MultipartFile file) {
+        if(file.isEmpty()){
+            return Resp.customFail("400","文件为空！");
+        }
+        String OriginalFilename = file.getOriginalFilename();
+        String fileName = System.currentTimeMillis()+"."+OriginalFilename.substring(OriginalFilename.lastIndexOf(".")+1);
+        String filePath = System.getProperty("user.dir") + "\\upload\\head_img\\"; //上传头像
+        File dest = new File(filePath+fileName);
+        if(!dest.getParentFile().exists()){ //检查目录是否存在
+            dest.getParentFile().mkdirs();
+        }
+        try {
+            file.transferTo(dest); //上传文件
+        }catch (Exception e){
+            e.printStackTrace();
+            return Resp.customFail("500",fileName+"上传失败！");
+        }
+        return Resp.success(fileName+"");
     }
 }

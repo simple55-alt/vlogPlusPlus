@@ -17,7 +17,7 @@ public class VideoController {
     private IVideoService iVideoService;
 
     @RequestMapping(value = "/get_video", method = RequestMethod.POST)
-    private List<Video> get_video(@RequestParam int id){
+    private Video get_video(@RequestParam int id){
         return iVideoService.get_video(id);
     }
 

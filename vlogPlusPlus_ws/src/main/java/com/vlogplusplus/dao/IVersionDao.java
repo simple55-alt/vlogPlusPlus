@@ -8,6 +8,5 @@ import java.util.List;
 @Repository
 public interface IVersionDao {
     List<Version> list();
-    List<Version> get_latest();
-
+    Version get_latest();
 }

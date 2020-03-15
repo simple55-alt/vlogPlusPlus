@@ -1,6 +1,8 @@
 package com.vlogplusplus.service;
 
+import com.vlogplusplus.entity.Resp;
 import com.vlogplusplus.entity.User;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 
@@ -13,5 +15,5 @@ public interface IUserService {
     void del(int u_id);
     void update_detail(String nickname, String email,
                        String phone, String image, byte sex,  Date birthday, String fashion,int u_id);
-
+    Resp<String> upload_img(MultipartFile file);
 }

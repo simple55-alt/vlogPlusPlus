@@ -21,7 +21,7 @@ public class VersionController {
     }
 
     @RequestMapping(value = "/get_latest", method = RequestMethod.POST)
-    private List<Version> get_latest(){
+    private Version get_latest(){
         return iVersionService.get_latest();
     }
 }

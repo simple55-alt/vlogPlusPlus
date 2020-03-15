@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface IVersionService {
     List<Version> list();
-    List<Version> get_latest();
+    Version get_latest();
 }

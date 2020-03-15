@@ -1,9 +1,14 @@
 package com.vlogplusplus.controller;
 
+import com.vlogplusplus.entity.Resp;
 import com.vlogplusplus.entity.User;
 import com.vlogplusplus.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 @RestController
 @RequestMapping(value = "/user")
@@ -42,5 +47,9 @@ public class UserController {
         iUserService.update_detail(user.getNickname(),user.getEmail(),user.getPhone(),
                 user.getImage(),user.getSex(),user.getBirthday(),user.getFashion(),user.getU_id());
     }
+
+    @RequestMapping(value = "/upload_img", method = RequestMethod.POST)
+    private Resp<String> upload_img(@RequestParam("file") MultipartFile file){
+        return iUserService.upload_img(file); //上传文件
+    }
 }
-//zs

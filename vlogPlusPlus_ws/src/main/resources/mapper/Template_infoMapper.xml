@@ -4,7 +4,7 @@
     <resultMap id="BaseResultMap" type="com.vlogplusplus.entity.Template_info">
     </resultMap>
     <select id="list" resultMap="BaseResultMap" parameterType="com.vlogplusplus.entity.Template_info">
-        SELECT * FROM template_info
+        SELECT * FROM template_info order by c_time desc
     </select>
 
     <insert id="add" parameterType="com.vlogplusplus.entity.Template_info">

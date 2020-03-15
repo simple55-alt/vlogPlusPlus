@@ -19,7 +19,11 @@ public class SearchService implements ISearchService {
     }
 
     @Override
-    public void add(String var, int count) {
-        iSearchDao.add(var,count);
+    public void add(String var) {
+        Search result = iSearchDao.search(var);
+        if(result==null)
+            iSearchDao.add(var);
+        else
+            iSearchDao.count(result.getId());
     }
 }

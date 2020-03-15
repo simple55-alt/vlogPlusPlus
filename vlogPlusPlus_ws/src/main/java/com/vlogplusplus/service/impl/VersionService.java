@@ -19,7 +19,7 @@ public class VersionService implements IVersionService {
     }
 
     @Override
-    public List<Version> get_latest() {
+    public Version get_latest() {
         return iVersionDao.get_latest();
     }
 }

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">vlogplusplus</string>
+    <string name="yanzheng_signin">使用短信验证码登录</string>
+    <string name="pass_signin">使用密码登录</string>
+    <string name="sign_up1">还没有账号？</string>
+    <string name="sign_up2">立即注册</string>
+    <string name="sign_in1">已经有账号？</string>
+    <string name="sign_in2">立即登录</string>
 </resources>

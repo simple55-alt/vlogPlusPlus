@@ -123,6 +123,9 @@ public class Sign_in1 extends AppCompatActivity {
                                         @Override
                                         public void run() {
                                             Toast.makeText(Sign_in1.this, "登录成功！", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(Sign_in1.this,MainActivity.class);
+                                            startActivity(intent);
+                                            finish();
                                         }
                                     });
                                     Log.d("用户id",id);

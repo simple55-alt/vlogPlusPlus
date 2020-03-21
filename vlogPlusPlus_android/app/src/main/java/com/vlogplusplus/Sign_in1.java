@@ -8,6 +8,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -21,6 +22,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONObject;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -75,31 +78,67 @@ public class Sign_in1 extends AppCompatActivity {
             public void onClick(View v) {
                 EditText username = findViewById(R.id.et1);
                 EditText password = findViewById(R.id.et2);
-                String usrname = username.getText().toString();
-                String passwd = password.getText().toString();
+                final String usrname = username.getText().toString();
+                final String[] passwd = {password.getText().toString()};
 
                 if(usrname.equals(""))
                     Toast.makeText(Sign_in1.this, "请输入账号！", Toast.LENGTH_SHORT).show();
-                else if(passwd.equals(""))
+                else if(passwd[0].equals(""))
                     Toast.makeText(Sign_in1.this, "请输入密码!", Toast.LENGTH_SHORT).show();
                 else{
-                    //MD5加密
-                    passwd = MD5Utils.encode(passwd); //MD5加密
-                    try {
-                        String json = "{\"username\": \""+usrname+"\", \"password\": \""+passwd+"\"}";
-                        OkHttpClient client = new OkHttpClient();
-                        Request request = new Request.Builder()
-                                //不能用127.0.0.1，因为此时的本地是电脑，不是模拟器
-                                .url(Api.url+"/user/login")
-                                .post(RequestBody.create(MediaType.parse("application/json"),json))
-                                .build();
-                        Response response = client.newCall(request).execute(); //执行发送指令
-                        String responseData = response.body().string();
-                        Log.d("登录请求回复",responseData);
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
-                    Toast.makeText(Sign_in1.this, "登录成功！", Toast.LENGTH_SHORT).show();
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            //MD5加密
+                            passwd[0] = MD5Utils.encode(passwd[0]); //MD5加密
+                            try {
+                                String json = "{\"username\": \""+usrname+"\", \"password\": \""+ passwd[0] +"\"}";
+                                OkHttpClient client = new OkHttpClient();
+                                Request request = new Request.Builder()
+                                        //不能用127.0.0.1，因为此时的本地是电脑，不是模拟器
+                                        .url(Api.url+"/user/login")
+                                        .post(RequestBody.create(MediaType.parse("application/json"),json))
+                                        .build();
+                                Response response = client.newCall(request).execute(); //执行发送指令
+                                String responseData = response.body().string();
+                                Log.d("登录请求回复",responseData);
+                                if(responseData.equals("")){ //登录失败
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(Sign_in1.this, "用户名或密码错误！", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }else{ //登录成功
+                                    JSONObject jsonObject = new JSONObject(responseData);
+                                    String id = jsonObject.getString("u_id");
+                                    String nickname = jsonObject.getString("nickname");
+                                    //写入用户信息到永久储存
+                                    SharedPreferences.Editor editor = getSharedPreferences("db_login",MODE_PRIVATE).edit();
+                                    editor.putString("id",id);
+                                    editor.putString("username",usrname);
+                                    editor.putString("nickname",nickname);
+                                    editor.apply();
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(Sign_in1.this, "登录成功！", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                    Log.d("用户id",id);
+                                    Log.d("昵称",nickname);
+                                }
+                            }catch (Exception e){
+                                e.printStackTrace();
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(Sign_in1.this, "网络请求出错！", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+                        }
+                    }).start();
                 }
             }
         });

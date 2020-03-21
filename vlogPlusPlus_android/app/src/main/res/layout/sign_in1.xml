@@ -111,12 +111,13 @@
             android:layout_below="@+id/password"
             android:background="@drawable/circle"
             android:layout_marginTop="150dp">
+
             <Button
+                android:id="@+id/button_signin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@mipmap/signin3"
-                >
+                android:gravity="center">
 
             </Button>
         </RelativeLayout>

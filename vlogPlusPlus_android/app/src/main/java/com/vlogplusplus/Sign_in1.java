@@ -29,6 +29,7 @@ public class Sign_in1 extends AppCompatActivity {
                 Intent intent=new Intent(Sign_in1.this,Sign_in2.class);
                 //        Toast.makeText(SignIn1Activity.this, "账号/密码错误!", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
+                finish();
             }
         };
         style.setSpan(clickableSpan, 0, 9, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -46,6 +47,7 @@ public class Sign_in1 extends AppCompatActivity {
             public void onClick(View widget) {
                 Intent intent=new Intent(Sign_in1.this,Registered.class);
                 startActivity(intent);
+                finish();
             }
         };
         style2.setSpan(clickableSpan2, 0, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);

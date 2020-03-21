@@ -29,6 +29,7 @@ public class Registered extends AppCompatActivity {
                 Intent intent=new Intent(Registered.this,Sign_in1.class);
                 //        Toast.makeText(SignIn1Activity.this, "账号/密码错误!", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
+                finish();
             }
         };
         style.setSpan(clickableSpan, 0, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);

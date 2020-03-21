@@ -117,6 +117,35 @@
                 android:layout_alignRight="@+id/et3"
                 android:src="@mipmap/delete" />
         </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/confirmPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_alignLeft="@+id/account"
+            android:background="@drawable/shape1"
+            android:layout_below="@+id/password">
+            <EditText
+                android:id="@+id/et5"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/sym5"
+                android:background="#00FFFFFF"
+                android:hint="请输入确认密码"
+                android:inputType="textPassword" />
+            <ImageView
+                android:id="@+id/sym5"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@mipmap/signin2" />
+            <ImageView
+                android:id="@+id/bt5"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignRight="@+id/et5"
+                android:src="@mipmap/delete" />
+        </RelativeLayout>
         <RelativeLayout
             android:id="@+id/verify"
             android:layout_width="wrap_content"
@@ -124,7 +153,7 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/shape1"
             android:layout_alignLeft="@+id/account"
-            android:layout_below="@+id/password">
+            android:layout_below="@+id/confirmPassword">
             <ImageView
                 android:id="@+id/sym4"
                 android:layout_width="25dp"

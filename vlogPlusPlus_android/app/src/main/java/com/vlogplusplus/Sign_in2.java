@@ -28,6 +28,7 @@ public class Sign_in2 extends AppCompatActivity {
             public void onClick(View widget) {
                 Intent intent=new Intent(Sign_in2.this,Sign_in1.class);
                 startActivity(intent);
+                finish();
             }
         };
         style.setSpan(clickableSpan, 0, 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -44,6 +45,7 @@ public class Sign_in2 extends AppCompatActivity {
             public void onClick(View widget) {
                 Intent intent=new Intent(Sign_in2.this,Registered.class);
                 startActivity(intent);
+                finish();
             }
         };
         style2.setSpan(clickableSpan2, 0, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);

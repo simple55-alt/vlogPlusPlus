@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -142,6 +143,26 @@ public class Sign_in1 extends AppCompatActivity {
                         }
                     }).start();
                 }
+            }
+        });
+
+        //清空用户名
+        ImageView clear_username = findViewById(R.id.bt1);
+        clear_username.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText = findViewById(R.id.et1);
+                editText.setText("");
+            }
+        });
+
+        //清空密码
+        ImageView clear_password = findViewById(R.id.bt2);
+        clear_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText = findViewById(R.id.et2);
+                editText.setText("");
             }
         });
     }

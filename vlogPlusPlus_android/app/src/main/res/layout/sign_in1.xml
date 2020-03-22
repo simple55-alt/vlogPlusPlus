@@ -46,14 +46,15 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:src="@mipmap/signin1"  />
+
             <EditText
                 android:id="@+id/et1"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:background="#00FFFFFF"
                 android:layout_toRightOf="@+id/sym1"
-                android:hint="请输入账号"
-                android:inputType="text"/>
+                android:background="#00FFFFFF"
+                android:hint="@string/signin1_usrname"
+                android:inputType="text" />
             <ImageView
                 android:id="@+id/bt1"
                 android:layout_width="25dp"
@@ -74,13 +75,14 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:src="@mipmap/signin2"  />
+
             <EditText
                 android:id="@+id/et2"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:background="#00FFFFFF"
                 android:layout_toRightOf="@+id/sym2"
-                android:hint="请输入密码"
+                android:background="#00FFFFFF"
+                android:hint="@string/inputPasswd"
                 android:inputType="textPassword" />
             <ImageView
                 android:id="@+id/bt2"

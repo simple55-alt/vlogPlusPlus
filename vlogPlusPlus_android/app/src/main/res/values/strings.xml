@@ -1,9 +1,19 @@
 <resources>
     <string name="app_name">VLOG++</string>
+    <string name="signin1_usrname">请输入用户名/邮箱/手机号</string>
+    <string name="signin2_usrname">请输入手机号码</string>
+    <string name="inputPasswd">请输入密码</string>
+    <string name="inputPasswd2">请输入确认密码</string>
     <string name="yanzheng_signin">使用短信验证码登录</string>
     <string name="pass_signin">使用密码登录</string>
     <string name="sign_up1">还没有账号？</string>
     <string name="sign_up2">立即注册</string>
     <string name="sign_in1">已经有账号？</string>
     <string name="sign_in2">立即登录</string>
+    <string name="sendCode">发送验证码</string>
+    <string name="checkUsrname">检测可用性</string>
+    <string name="usrnameChecked">用户名可用</string>
+    <string name="inputPhoneNumber">请输入手机号码</string>
+    <string name="inputSmsCode">请输入验证码</string>
+    <string name="inputUsername">请输入用户名</string>
 </resources>

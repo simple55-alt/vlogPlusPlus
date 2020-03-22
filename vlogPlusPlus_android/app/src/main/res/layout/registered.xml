@@ -45,20 +45,31 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:src="@mipmap/signin1"  />
+
             <EditText
                 android:id="@+id/et1"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:background="#00FFFFFF"
                 android:layout_toRightOf="@+id/sym1"
-                android:hint="请输入昵称"
-                android:inputType="text"/>
+                android:background="#00FFFFFF"
+                android:hint="@string/inputUsername"
+                android:inputType="text" />
             <ImageView
                 android:id="@+id/bt1"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_alignRight="@+id/et1"
-                android:src="@mipmap/delete"  />
+                android:src="@mipmap/delete"/>
+
+            <Button
+                android:id="@+id/button_check"
+                android:layout_width="60dp"
+                android:layout_height="25dp"
+                android:layout_alignRight="@id/bt1"
+                android:background="@drawable/shape2"
+                android:text="@string/checkUsrname"
+                android:textColor="@color/colorWhite"
+                android:textSize="10dp"></Button>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/account"
@@ -74,14 +85,16 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:src="@mipmap/phone"  />
+
             <EditText
                 android:id="@+id/et2"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:background="#00FFFFFF"
                 android:layout_toRightOf="@+id/sym2"
-                android:hint="请输入手机号码"
-                android:inputType="text"/>
+                android:background="#00FFFFFF"
+                android:hint="@string/inputPhoneNumber"
+                android:inputType="number"
+                android:maxLength="11" />
             <ImageView
                 android:id="@+id/bt2"
                 android:layout_width="25dp"
@@ -102,13 +115,14 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:src="@mipmap/signin2"  />
+
             <EditText
                 android:id="@+id/et3"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:background="#00FFFFFF"
                 android:layout_toRightOf="@+id/sym3"
-                android:hint="请输入密码"
+                android:background="#00FFFFFF"
+                android:hint="@string/inputPasswd"
                 android:inputType="textPassword" />
             <ImageView
                 android:id="@+id/bt3"
@@ -126,13 +140,14 @@
             android:layout_alignLeft="@+id/account"
             android:background="@drawable/shape1"
             android:layout_below="@+id/password">
+
             <EditText
                 android:id="@+id/et5"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/sym5"
                 android:background="#00FFFFFF"
-                android:hint="请输入确认密码"
+                android:hint="@string/inputPasswd2"
                 android:inputType="textPassword" />
             <ImageView
                 android:id="@+id/sym5"
@@ -159,25 +174,26 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:src="@mipmap/message"  />
+
             <EditText
                 android:id="@+id/et4"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:background="#00FFFFFF"
-                android:layout_toRightOf="@+id/sym4"
                 android:layout_centerHorizontal="true"
-                android:hint="请输入验证码"
+                android:layout_toRightOf="@+id/sym4"
+                android:background="#00FFFFFF"
+                android:hint="@string/inputSmsCode"
                 android:inputType="textPassword" />
+
             <Button
-                android:background="@drawable/shape2"
+                android:id="@+id/button_sendSmsCode"
                 android:layout_width="60dp"
                 android:layout_height="25dp"
-                android:textColor="@color/colorWhite"
                 android:layout_alignRight="@id/et4"
-                android:text="发送验证码"
-                android:textSize="10dp">
-
-            </Button>
+                android:background="@drawable/shape2"
+                android:text="@string/sendCode"
+                android:textColor="@color/colorWhite"
+                android:textSize="10dp"></Button>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/signin"
@@ -187,12 +203,13 @@
             android:layout_below="@+id/password"
             android:background="@drawable/circle"
             android:layout_marginTop="150dp">
+
             <Button
+                android:id="@+id/button_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@mipmap/signin3"
-                >
+                android:gravity="center">
 
             </Button>
         </RelativeLayout>

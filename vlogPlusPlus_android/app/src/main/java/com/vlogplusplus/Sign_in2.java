@@ -73,10 +73,11 @@ public class Sign_in2 extends AppCompatActivity {
 
         //发送短信验证码
         Button button_sendSmsCode = findViewById(R.id.button_sendSmsCode);
+        final TimeCount timeCount = new TimeCount(50000,1000,button_sendSmsCode);
         button_sendSmsCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText phone = findViewById(R.id.et1);
+                final EditText phone = findViewById(R.id.et1);
                 EditText code = findViewById(R.id.et2);
                 final String phoneNumber = phone.getText().toString();
                 if(phoneNumber.length()!=11)
@@ -123,6 +124,9 @@ public class Sign_in2 extends AppCompatActivity {
                                         public void run() {
                                             if(responseData2.equals("OK")){
                                                 Toast.makeText(Sign_in2.this, "短信发送成功！", Toast.LENGTH_SHORT).show();
+                                                timeCount.start();
+                                                phone.setFocusable(false); //防止用户收到验证码后改手机号不验证直接注册
+                                                phone.setFocusableInTouchMode(false);
                                             }else {
                                                 Toast.makeText(Sign_in2.this, "短信发送失败！请重试！", Toast.LENGTH_SHORT).show();
                                             }

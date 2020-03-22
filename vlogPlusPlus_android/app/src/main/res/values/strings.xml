@@ -6,4 +6,8 @@
     <string name="sign_up2">立即注册</string>
     <string name="sign_in1">已经有账号？</string>
     <string name="sign_in2">立即登录</string>
+    <string name="sendCode">发送验证码</string>
+    <string name="checkUsrname">检测可用性</string>
+    <string name="usrnameChecked">用户名可用</string>
+    <string name="inputPhoneNumber">请输入手机号码</string>
 </resources>

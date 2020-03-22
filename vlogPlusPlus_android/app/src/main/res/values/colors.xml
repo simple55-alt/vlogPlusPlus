@@ -6,4 +6,5 @@
     <color name="colorGrey">#7B7B7B</color>
     <color name="colorPink">#FC8C9E</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="backgroundlucency">#00FFFFFF</color>
 </resources>

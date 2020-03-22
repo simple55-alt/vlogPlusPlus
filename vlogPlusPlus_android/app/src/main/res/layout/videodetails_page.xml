@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VideoDetails_page">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/backbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:background="@color/backgroundlucency"
+            android:src="@mipmap/back">
+
+        </ImageButton>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/videod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:id="@+id/uploader"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp">
+            <ImageView
+                android:id="@+id/headp"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true">
+
+            </ImageView>
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(用户名称)"
+                android:layout_toRightOf="@+id/headp"
+                android:layout_marginLeft="0dp">
+
+            </TextView>
+            <TextView
+                android:id="@+id/uploadtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(上传时间)"
+                android:layout_alignLeft="@+id/name"
+                android:layout_alignBottom="@+id/headp">
+
+            </TextView>
+            <ImageButton
+                android:id="@+id/transmitbutton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="fitXY"
+                android:layout_centerVertical="true"
+                android:background="@color/backgroundlucency"
+                android:src="@mipmap/transmit"
+                android:layout_alignParentRight="true">
+
+            </ImageButton>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/videotitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="视频标题">
+
+            </TextView>
+            <VideoView
+                android:id="@+id/videoplay"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+            </VideoView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/runningtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="00:00">
+
+                </TextView>
+                <SeekBar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/runningtime"
+                    android:layout_toLeftOf="@+id/totaltime"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal">
+
+                </SeekBar>
+                <TextView
+                    android:id="@+id/totaltime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="00:00">
+
+                </TextView>
+            </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/threebutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/favouitebutton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="fitXY"
+                    android:background="@color/backgroundlucency"
+                    android:src="@mipmap/favorite"
+                    android:layout_marginRight="70dp">
+
+                </ImageButton>
+                <ImageButton
+                    android:id="@+id/pausebutton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitXY"
+                    android:background="@color/backgroundlucency"
+                    android:src="@mipmap/pause">
+
+                </ImageButton>
+                <ImageButton
+                    android:id="@+id/remarkbutton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="fitXY"
+                    android:background="@color/backgroundlucency"
+                    android:src="@mipmap/remark"
+                    android:layout_marginLeft="70dp">
+
+                </ImageButton>
+            </LinearLayout>
+        </LinearLayout>
+    <LinearLayout
+        android:id="@+id/commentssection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPink"
+            android:text="热评论"
+            android:textColor="@color/colorWhite">
+        </TextView>
+        <RelativeLayout
+            android:id="@+id/observer"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp">
+            <ImageView
+                android:id="@+id/observerheadp"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true">
+
+            </ImageView>
+            <TextView
+                android:id="@+id/observername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周杰伦"
+                android:layout_toRightOf="@+id/observerheadp"
+                android:layout_alignParentTop="true">
+
+            </TextView>
+            <TextView
+                android:id="@+id/comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="哎哟不错哦！"
+                android:textStyle="bold"
+                android:layout_below="@+id/observername"
+                android:layout_toRightOf="@+id/observerheadp"
+                android:layout_marginLeft="0dp">
+
+            </TextView>
+            <TextView
+                android:id="@+id/commenttime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="五分钟前"
+                android:layout_alignLeft="@+id/observername"
+                android:layout_alignBottom="@+id/observerheadp">
+
+            </TextView>
+            <TextView
+                android:id="@+id/reply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="回复"
+                android:layout_alignTop="@+id/commenttime"
+                android:layout_toRightOf="@+id/commenttime"
+                android:layout_marginLeft="5dp">
+            </TextView>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

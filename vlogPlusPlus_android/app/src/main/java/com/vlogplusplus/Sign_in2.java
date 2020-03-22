@@ -1,6 +1,7 @@
 package com.vlogplusplus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -28,7 +29,7 @@ import org.json.JSONObject;
 import java.util.Random;
 
 public class Sign_in2 extends AppCompatActivity {
-    private static int msgCode = -1; //短信验证码
+    private static int msgCode = -1; //短信验证码, 后门-1
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,31 +85,50 @@ public class Sign_in2 extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            //生成4位数字的短信验证码
-                            Random random = new Random();
-                            while (msgCode<1000)
-                                msgCode = random.nextInt(10000);
-                            //Log.d("短信验证码",msgCode+"");
                             try {
-                                String json = "{\"phoneNumber\": \""+phoneNumber+"\", \"code\": \""+ msgCode +"\", \"min\": 3}";
+                                //检测用户是否存在，避免浪费短信条数
+                                FormBody.Builder params = new FormBody.Builder();
+                                params.add("username",phoneNumber); //添加url参数
                                 OkHttpClient client = new OkHttpClient();
                                 Request request = new Request.Builder()
-                                        .url(Api.url+"/sms/sendCode")
-                                        .post(RequestBody.create(MediaType.parse("application/json"),json))
-                                        .build();
+                                        .url(Api.url+"/user/check")
+                                        .post(params.build()).build();
                                 Response response = client.newCall(request).execute(); //执行发送指令
-                                final String responseData = response.body().string();
-                                Log.d("短信请求回复",responseData);
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        if(responseData.equals("OK")){
-                                            Toast.makeText(Sign_in2.this, "短信发送成功！", Toast.LENGTH_SHORT).show();
-                                        }else {
-                                            Toast.makeText(Sign_in2.this, "短信发送失败！请重试！", Toast.LENGTH_SHORT).show();
+                                String responseData = response.body().string();
+                                Log.d("验证用户存在请求回复",responseData);
+                                if(responseData.equals("")){
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(Sign_in2.this, "该手机号码尚未注册！", Toast.LENGTH_SHORT).show();
                                         }
-                                    }
-                                });
+                                    });
+                                }else {
+                                    //生成4位数字的短信验证码
+                                    Random random = new Random();
+                                    while (msgCode<1000)
+                                        msgCode = random.nextInt(10000);
+                                    //Log.d("短信验证码",msgCode+"");
+                                    String json = "{\"phoneNumber\": \""+phoneNumber+"\", \"code\": \""+ msgCode +"\", \"min\": 3}";
+                                    client = new OkHttpClient();
+                                    request = new Request.Builder()
+                                            .url(Api.url+"/sms/sendCode")
+                                            .post(RequestBody.create(MediaType.parse("application/json"),json))
+                                            .build();
+                                    response = client.newCall(request).execute(); //执行发送指令
+                                    final String responseData2 = response.body().string();
+                                    Log.d("短信请求回复",responseData);
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            if(responseData2.equals("OK")){
+                                                Toast.makeText(Sign_in2.this, "短信发送成功！", Toast.LENGTH_SHORT).show();
+                                            }else {
+                                                Toast.makeText(Sign_in2.this, "短信发送失败！请重试！", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                                }
                             }catch (Exception e){
                                 e.printStackTrace();
                                 runOnUiThread(new Runnable() {
@@ -156,12 +176,12 @@ public class Sign_in2 extends AppCompatActivity {
                                 }else{ //登录成功
                                     JSONObject jsonObject = new JSONObject(responseData);
                                     String id = jsonObject.getString("u_id");
-                                    String usrname = jsonObject.getString("usrname");
+                                    String username = jsonObject.getString("username");
                                     String nickname = jsonObject.getString("nickname");
                                     //写入用户信息到永久储存
                                     SharedPreferences.Editor editor = getSharedPreferences("db_login",MODE_PRIVATE).edit();
                                     editor.putString("id",id);
-                                    editor.putString("username",usrname);
+                                    editor.putString("username",username);
                                     editor.putString("nickname",nickname);
                                     editor.apply();
                                     runOnUiThread(new Runnable() {

@@ -96,7 +96,7 @@ public class Sign_in2 extends AppCompatActivity {
                                 Response response = client.newCall(request).execute(); //执行发送指令
                                 String responseData = response.body().string();
                                 Log.d("验证用户存在请求回复",responseData);
-                                if(responseData.equals("")){
+                                if(responseData.equals("[]")){
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
@@ -117,7 +117,7 @@ public class Sign_in2 extends AppCompatActivity {
                                             .build();
                                     response = client.newCall(request).execute(); //执行发送指令
                                     final String responseData2 = response.body().string();
-                                    Log.d("短信请求回复",responseData);
+                                    Log.d("短信请求回复",responseData2);
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {

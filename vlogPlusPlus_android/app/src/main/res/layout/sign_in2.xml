@@ -46,14 +46,16 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:src="@mipmap/phone"  />
+
                 <EditText
                     android:id="@+id/et1"
                     android:layout_width="280dp"
                     android:layout_height="wrap_content"
-                    android:background="#00FFFFFF"
                     android:layout_toRightOf="@+id/sym1"
+                    android:background="#00FFFFFF"
                     android:hint="请输入手机号码"
-                    android:inputType="text"/>
+                    android:inputType="number"
+                    android:maxLength="11" />
                 <ImageView
                     android:id="@+id/bt1"
                     android:layout_width="25dp"
@@ -83,13 +85,15 @@
                     android:layout_centerHorizontal="true"
                     android:hint="请输入验证码"
                     android:inputType="textPassword" />
+
                 <Button
-                    android:background="@drawable/shape2"
+                    android:id="@+id/button_sendSmsCode"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
-                    android:textColor="@color/colorWhite"
                     android:layout_alignRight="@id/et2"
+                    android:background="@drawable/shape2"
                     android:text="发送验证码"
+                    android:textColor="@color/colorWhite"
                     android:textSize="10dp">
 
                 </Button>
@@ -116,12 +120,13 @@
                 android:layout_below="@+id/verify"
                 android:background="@drawable/circle"
                 android:layout_marginTop="150dp">
+
                 <Button
+                    android:id="@+id/button_signin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:background="@mipmap/signin3"
-                    >
+                    android:gravity="center">
 
                 </Button>
             </RelativeLayout>

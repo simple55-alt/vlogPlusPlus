@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class UserService implements IUserService {
@@ -19,6 +20,11 @@ public class UserService implements IUserService {
     @Override
     public User login(String username, String password) {
         return iUserDao.login(username, password);
+    }
+
+    @Override
+    public List<User> check(String username) {
+        return iUserDao.check(username);
     }
 
     @Override

@@ -95,7 +95,6 @@ public class Sign_in1 extends AppCompatActivity {
                                 String json = "{\"username\": \""+usrname+"\", \"password\": \""+ passwd[0] +"\"}";
                                 OkHttpClient client = new OkHttpClient();
                                 Request request = new Request.Builder()
-                                        //不能用127.0.0.1，因为此时的本地是电脑，不是模拟器
                                         .url(Api.url+"/user/login")
                                         .post(RequestBody.create(MediaType.parse("application/json"),json))
                                         .build();

@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/user")
@@ -19,6 +20,11 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     private User login(@RequestBody User user){
         return iUserService.login(user.getUsername(), user.getPassword());
+    }
+
+    @RequestMapping(value = "/check", method = RequestMethod.POST)
+    private List<User> check(@RequestParam String username){
+        return iUserService.check(username);
     }
 
     @RequestMapping(value = "/get_user", method = RequestMethod.POST)

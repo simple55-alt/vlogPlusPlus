@@ -16,10 +16,10 @@ import java.io.IOException;
 @RequestMapping(value = "/sms")
 public class SmsController {
     @RequestMapping(value = "/sendCode", method = RequestMethod.POST)
-    public void sendCode(@RequestBody Sms sms){
-        int appid = 1000000003;
-        String appkey = "";
-        int templateId = 123456; //模板ID
+    public String sendCode(@RequestBody Sms sms){
+        int appid = 1400336702;
+        String appkey = "8fa23494421cd6a73ffad9297dd70822";
+        int templateId = 308731; //模板ID
         String smsSign = "CNXFS";
         try{
             String[] params = {sms.getCode(), Integer.toString(sms.getMin())}; //短信中的参数
@@ -27,6 +27,7 @@ public class SmsController {
             SmsSingleSenderResult result = ssender.sendWithParam("86",sms.getPhoneNumber(),templateId,
                     params,smsSign,"","");
             System.out.println(result);
+            return result.errMsg;
         }catch (HTTPException e){
             e.printStackTrace();
         }catch (JSONException e){
@@ -34,5 +35,6 @@ public class SmsController {
         }catch (IOException e){
             e.printStackTrace();
         }
+        return "Fail";
     }
 }

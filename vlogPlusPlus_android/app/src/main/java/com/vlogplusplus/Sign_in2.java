@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -213,6 +214,16 @@ public class Sign_in2 extends AppCompatActivity {
                     }).start();
                 }else
                     Toast.makeText(Sign_in2.this, "验证码错误！", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //清空手机号
+        ImageView clear_phone = findViewById(R.id.bt1);
+        clear_phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText = findViewById(R.id.et1);
+                editText.setText("");
             }
         });
     }

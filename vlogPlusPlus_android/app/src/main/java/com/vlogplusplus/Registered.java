@@ -24,6 +24,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -66,8 +67,9 @@ public class Registered extends AppCompatActivity {
                     public void run() {
                         try{
                             EditText username = findViewById(R.id.et1);
+                            String usrname = username.getText().toString();
                             FormBody.Builder params = new FormBody.Builder();
-                            params.add("username",username.getText().toString()); //添加url参数
+                            params.add("username",usrname); //添加url参数
                             OkHttpClient client = new OkHttpClient();
                             Request request = new Request.Builder()
                                     .url(Api.url+"/user/check")
@@ -75,7 +77,7 @@ public class Registered extends AppCompatActivity {
                             Response response = client.newCall(request).execute(); //执行发送指令
                             String responseData = response.body().string();
                             Log.d("验证用户存在请求回复",responseData);
-                            if(responseData.equals("[]")){
+                            if(responseData.equals("[]") && (!usrname.equals(""))){
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
@@ -217,6 +219,8 @@ public class Registered extends AppCompatActivity {
                     Toast.makeText(Registered.this, "请先点击用户名检测按钮！", Toast.LENGTH_SHORT).show();
                 else if(phoneNumber.length()!=11)
                     Toast.makeText(Registered.this, "手机号码输入有误！", Toast.LENGTH_SHORT).show();
+                else if(!passwd1.equals(""))
+                    Toast.makeText(Registered.this, "密码不能为空！", Toast.LENGTH_SHORT).show();
                 else if(!passwd1.equals(passwd2))
                     Toast.makeText(Registered.this, "两次密码输入不一致！", Toast.LENGTH_SHORT).show();
                 else if(!code.getText().toString().equals(msgCode+""))
@@ -261,6 +265,37 @@ public class Registered extends AppCompatActivity {
                 }
             }
         });
+
+        //清空手机号按钮
+        ImageView clear_phone = findViewById(R.id.bt2);
+        clear_phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText = findViewById(R.id.et2);
+                editText.setText("");
+            }
+        });
+
+        //清空密码
+        ImageView clear_pass = findViewById(R.id.bt3);
+        clear_pass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText = findViewById(R.id.et3);
+                editText.setText("");
+            }
+        });
+
+        //清空确认密码
+        ImageView clear_pass2 = findViewById(R.id.bt5);
+        clear_pass2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText = findViewById(R.id.et5);
+                editText.setText("");
+            }
+        });
+
     }
 }
 

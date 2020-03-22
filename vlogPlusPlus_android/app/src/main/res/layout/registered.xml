@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/sym1"
                 android:background="#00FFFFFF"
-                android:hint="请输入用户名"
+                android:hint="@string/inputUsername"
                 android:inputType="text" />
             <ImageView
                 android:id="@+id/bt1"
@@ -115,13 +115,14 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:src="@mipmap/signin2"  />
+
             <EditText
                 android:id="@+id/et3"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:background="#00FFFFFF"
                 android:layout_toRightOf="@+id/sym3"
-                android:hint="请输入密码"
+                android:background="#00FFFFFF"
+                android:hint="@string/inputPasswd"
                 android:inputType="textPassword" />
             <ImageView
                 android:id="@+id/bt3"
@@ -139,13 +140,14 @@
             android:layout_alignLeft="@+id/account"
             android:background="@drawable/shape1"
             android:layout_below="@+id/password">
+
             <EditText
                 android:id="@+id/et5"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/sym5"
                 android:background="#00FFFFFF"
-                android:hint="请输入确认密码"
+                android:hint="@string/inputPasswd2"
                 android:inputType="textPassword" />
             <ImageView
                 android:id="@+id/sym5"
@@ -172,14 +174,15 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:src="@mipmap/message"  />
+
             <EditText
                 android:id="@+id/et4"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:background="#00FFFFFF"
-                android:layout_toRightOf="@+id/sym4"
                 android:layout_centerHorizontal="true"
-                android:hint="请输入验证码"
+                android:layout_toRightOf="@+id/sym4"
+                android:background="#00FFFFFF"
+                android:hint="@string/inputSmsCode"
                 android:inputType="textPassword" />
 
             <Button

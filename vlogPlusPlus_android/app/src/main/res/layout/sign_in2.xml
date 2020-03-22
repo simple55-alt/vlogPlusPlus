@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/sym1"
                     android:background="#00FFFFFF"
-                    android:hint="请输入手机号码"
+                    android:hint="@string/signin2_usrname"
                     android:inputType="number"
                     android:maxLength="11" />
                 <ImageView
@@ -76,14 +76,16 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:src="@mipmap/message"  />
+
                 <EditText
                     android:id="@+id/et2"
                     android:layout_width="280dp"
                     android:layout_height="wrap_content"
-                    android:background="#00FFFFFF"
-                    android:layout_toRightOf="@+id/sym2"
                     android:layout_centerHorizontal="true"
-                    android:hint="请输入验证码"
+                    android:layout_marginLeft="-2dp"
+                    android:layout_toRightOf="@+id/sym2"
+                    android:background="#00FFFFFF"
+                    android:hint="@string/inputSmsCode"
                     android:inputType="textPassword" />
 
                 <Button
@@ -92,7 +94,7 @@
                     android:layout_height="25dp"
                     android:layout_alignRight="@id/et2"
                     android:background="@drawable/shape2"
-                    android:text="发送验证码"
+                    android:text="@string/sendCode"
                     android:textColor="@color/colorWhite"
                     android:textSize="10dp">
 

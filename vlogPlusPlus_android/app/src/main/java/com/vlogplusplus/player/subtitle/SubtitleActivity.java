@@ -160,7 +160,6 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 				try {
 					URL url = new URL(subtitlePath); //字幕文件路径
 					HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-					//InputStream inputStream = getResources().openRawResource(R.raw.subtitle);
 					SrtParser.parseSrt(SubtitleActivity.this, conn.getInputStream());
 					SrtParser.showSRT(videoView, tvSrt);
 				}catch (Exception e){

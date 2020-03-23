@@ -24,6 +24,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.vlogplusplus.player.subtitle.SubtitleActivity;
+
 import org.json.JSONObject;
 
 import java.security.MessageDigest;
@@ -43,6 +45,7 @@ public class Sign_in1 extends AppCompatActivity {
             @Override
             public void onClick(View widget) {
                 Intent intent=new Intent(Sign_in1.this,Sign_in2.class);
+                //Intent intent=new Intent(Sign_in1.this, SubtitleActivity.class);
                 //        Toast.makeText(SignIn1Activity.this, "账号/密码错误!", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 finish();

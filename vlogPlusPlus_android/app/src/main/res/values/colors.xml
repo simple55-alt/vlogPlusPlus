@@ -7,4 +7,5 @@
     <color name="colorPink">#FC8C9E</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="backgroundlucency">#00FFFFFF</color>
+    <color name="black_overlay">#66000000</color>
 </resources>

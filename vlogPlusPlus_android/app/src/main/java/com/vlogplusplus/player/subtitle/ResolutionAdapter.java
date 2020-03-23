@@ -60,7 +60,7 @@ public class ResolutionAdapter extends BaseAdapter {
 		final ViewHolder holder;
 		if (convertView == null) {
 			holder = new ViewHolder();
-			convertView = inflater.inflate(R.layout.resolution_item, null);
+			convertView = inflater.inflate(R.layout.player_resolution_item, null);
 
 			holder.resolution_name = (TextView) convertView
 					.findViewById(R.id.resolution_name);

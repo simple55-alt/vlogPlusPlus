@@ -5,13 +5,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.VideoView;
-
-import com.vlogplusplus.R;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class SrtParser {
@@ -22,10 +21,9 @@ public class SrtParser {
      * 解析SRT字幕文件
      * 字幕路径
      */
-    public static void parseSrt(Context context) {
-        InputStream inputStream = null;
+    public static void parseSrt(Context context, InputStream inputStream) {
         try {
-            inputStream = context.getResources().openRawResource(R.raw.subtitle); //字幕文件路径
+            //inputStream = context.getResources().openRawResource(R.raw.subtitle); //字幕文件路径
             // TODO Auto-generated catch block
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     inputStream,"GB2312"));
@@ -95,7 +93,6 @@ public class SrtParser {
             e.printStackTrace();
         }
         //每隔500ms执行一次()取
-
     }
 
     public static void showSRT(VideoView videoView,TextView tvSrt) {

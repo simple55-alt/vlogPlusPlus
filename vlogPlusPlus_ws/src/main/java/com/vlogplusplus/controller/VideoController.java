@@ -56,7 +56,7 @@ public class VideoController {
                     String cmd = System.getProperty("user.dir") + "\\auto_subtitle\\venv\\Scripts\\python.exe ";
                     cmd += System.getProperty("user.dir") + "\\auto_subtitle\\main.py ";
                     cmd += System.getProperty("user.dir") + "\\upload\\video\\"+fileName+" "; //视频文件的路径
-                    cmd += System.getProperty("user.dir") + "\\upload\\subtitle\\"+fileName.substring(0,fileName.lastIndexOf("."))+".srt"; //字幕结果文件的路径
+                    cmd += System.getProperty("user.dir") + "\\upload\\subtitle\\"+fileName.substring(0,fileName.lastIndexOf("."))+".txt"; //字幕结果文件的路径
                     System.out.println(cmd);
                     process = Runtime.getRuntime().exec(cmd);
                     //用输入输出流来截取结果

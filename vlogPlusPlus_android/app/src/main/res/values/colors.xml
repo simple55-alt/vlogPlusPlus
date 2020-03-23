@@ -8,4 +8,5 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="backgroundlucency">#00FFFFFF</color>
     <color name="black_overlay">#66000000</color>
+    <color name="verysoftgrey">#DCDCDC</color>
 </resources>

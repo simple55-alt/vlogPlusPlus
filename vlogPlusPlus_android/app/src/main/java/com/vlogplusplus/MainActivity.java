@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import com.vlogplusplus.player.subtitle.SubtitleActivity;
+import com.vlogplusplus.videoEditor.OptiMainActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Sign_in1.class);
+                startActivity(intent);
+            }
+        });
+
+        Button button3 = findViewById(R.id.button_temp_test3);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, OptiMainActivity.class);
                 startActivity(intent);
             }
         });

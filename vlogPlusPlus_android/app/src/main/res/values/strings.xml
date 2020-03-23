@@ -18,7 +18,7 @@
     <string name="inputPhoneNumber">请输入手机号码</string>
     <string name="inputSmsCode">请输入验证码</string>
     <string name="inputUsername">请输入用户名</string>
-    
+
     <!--视频编辑功能需要的字符串-->
     <string name="video_editing">MarvelEditor</string>
     <string name="save">Save</string>

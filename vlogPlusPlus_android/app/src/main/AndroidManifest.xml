@@ -4,7 +4,12 @@
     package="com.vlogplusplus">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!--视频编辑功能需要的权限-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="replace"/>
+    <uses-permission android:name="com.android.providers.media.MediaProvider"/>
 
     <application
         android:allowBackup="false"
@@ -37,13 +42,7 @@
 
         <!--视频编辑功能-->
         <!--OptiSplashScreen-->
-        <activity android:name="com.vlogplusplus.videoEditor.OptiSplashScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+        <activity android:name="com.vlogplusplus.videoEditor.OptiSplashScreen"/>
 
         <!--MainActivity-->
         <activity android:name="com.vlogplusplus.videoEditor.OptiMainActivity"

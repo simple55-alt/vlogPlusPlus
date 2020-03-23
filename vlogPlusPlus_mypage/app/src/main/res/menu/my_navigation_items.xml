@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+   <item
+       android:id="@+id/shequ"
+       android:icon="@mipmap/shequ"
+       android:title="@string/text_shequ"/>
+   <item
+       android:id="@+id/bianji"
+       android:icon="@mipmap/bianji"
+       android:title="@string/text_bianji"/>
+    <item
+       android:id="@+id/wode"
+       android:icon="@mipmap/my"
+       android:title="@string/text_my" />
+
+</menu>

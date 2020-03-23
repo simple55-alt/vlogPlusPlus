@@ -31,6 +31,9 @@ import android.widget.VideoView;
 
 import com.vlogplusplus.R;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -40,7 +43,6 @@ import java.util.TimerTask;
 /**
  * 1、实现匹配srt字幕
  * 2、设置ActivityInfo的sensor来实现横竖屏，然后进行VideoView的大小屏切换，即使横竖屏切换被禁止也能用，
- * Created by gaolei on 17/3/13.
  */
 public class SubtitleActivity extends Activity implements View.OnClickListener,OnTouchListener{
 
@@ -95,7 +97,8 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_subtitle);
+		setContentView(R.layout.player);
+
 		videoView = (VideoView)this.findViewById(R.id.videoView );
 		mAM = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 		screenWidth = APPApplication.screenWidth;
@@ -128,8 +131,9 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String rawUri = "android.resource://" + getPackageName() + "/" + R.raw.video; //视频文件路径
-		Uri uri = Uri.parse(rawUri);
+
+		String rawUri = getIntent().getStringExtra("video");
+		Uri uri = Uri.parse(rawUri); //设置视频文件路径
 		//设置视频控制器
 //        videoView.setMediaController(new MediaController(this));
 		//播放完成回调
@@ -147,8 +151,23 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 		videoView.setVideoURI(uri);
 		//开始播放视频
 		videoView.start();
-		SrtParser.parseSrt(this);
-		SrtParser.showSRT(videoView,tvSrt) ;
+
+		//设置字幕
+		final String subtitlePath = getIntent().getStringExtra("subtitle");
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					URL url = new URL(subtitlePath); //字幕文件路径
+					HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+					//InputStream inputStream = getResources().openRawResource(R.raw.subtitle);
+					SrtParser.parseSrt(SubtitleActivity.this, conn.getInputStream());
+					SrtParser.showSRT(videoView, tvSrt);
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		}).start();
 
 		mHandler.sendEmptyMessageDelayed(0, 500);
 

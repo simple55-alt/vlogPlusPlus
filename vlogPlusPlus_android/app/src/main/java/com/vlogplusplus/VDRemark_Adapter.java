@@ -1,23 +1,18 @@
 package com.vlogplusplus;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.ViewHolder>{
-
-
     private LayoutInflater mInflater;
-    private String[] mTitles=null;
+    private String[] mTitles;
 
-    public VDRemark_Adapter(Context context){
+    VDRemark_Adapter(Context context){
         this.mInflater=LayoutInflater.from(context);
         this.mTitles=new String[20];
         for (int i=0;i<20;i++){
@@ -54,7 +49,7 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
         public TextView comment1;
         public TextView commenttime;
 
-        public ViewHolder(View view){
+        ViewHolder(View view){
             super(view);
             headp = (ImageView)view.findViewById(R.id.observerheadp);
             name = (TextView)view.findViewById(R.id.observername);

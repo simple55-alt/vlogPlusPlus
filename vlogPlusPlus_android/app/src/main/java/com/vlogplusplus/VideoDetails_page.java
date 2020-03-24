@@ -91,7 +91,6 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
 
     public void remarkDialog() {
         dialog = new Dialog(this,R.style.ActionSheetDialogStyle);//填充对话框的布局
-
         inflate = LayoutInflater.from(this).inflate(R.layout.remark_dialog, null);        //初始化控件
 
         //将布局设置给Dialog

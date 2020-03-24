@@ -43,5 +43,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button button4 = findViewById(R.id.button_temp_test4);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, VideoDetails_page.class);
+                startActivity(intent);
+            }
+        });
     }
 }

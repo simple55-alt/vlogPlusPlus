@@ -16,6 +16,7 @@
         android:gravity="center">
 
         <ImageButton
+            android:id="@+id/back"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:scaleType="fitXY"
@@ -91,69 +92,48 @@
             </VideoView>
             </LinearLayout>
         </LinearLayout>
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/commentssection"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
+            android:id="@+id/remartitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPink"
             android:text="热评论"
             android:textColor="@color/colorWhite">
         </TextView>
-        <RelativeLayout
-            android:id="@+id/observer"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/remarker"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginLeft="5dp">
-            <ImageView
-                android:id="@+id/observerheadp"
-                android:layout_width="20dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true">
-
-            </ImageView>
-            <TextView
-                android:id="@+id/observername"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/remartitle">
+        </androidx.recyclerview.widget.RecyclerView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:layout_alignParentBottom="true"
+            >
+            <EditText
+                android:id="@+id/comment_my"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:hint="说点什么吧"
+                android:paddingLeft="5dp"
+                android:background="@color/backgroundlucency"
+                >
+            </EditText>
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="周杰伦"
-                android:layout_toRightOf="@+id/observerheadp"
-                android:layout_alignParentTop="true">
-
-            </TextView>
-            <TextView
-                android:id="@+id/comment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="哎哟不错哦！"
-                android:textStyle="bold"
-                android:layout_below="@+id/observername"
-                android:layout_toRightOf="@+id/observerheadp"
-                android:layout_marginLeft="0dp">
-
-            </TextView>
-            <TextView
-                android:id="@+id/commenttime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="五分钟前"
-                android:layout_alignLeft="@+id/observername"
-                android:layout_alignBottom="@+id/observerheadp">
-
-            </TextView>
-            <TextView
-                android:id="@+id/reply"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="回复"
-                android:layout_alignTop="@+id/commenttime"
-                android:layout_toRightOf="@+id/commenttime"
-                android:layout_marginLeft="5dp">
-            </TextView>
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                ></ImageButton>
         </RelativeLayout>
-    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

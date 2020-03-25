@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">my_page</string>
-    <string name="text_shequ">社区</string>
-    <string name="text_bianji">编辑</string>
-    <string name="text_my">我的</string>
-    <string name="text_zuopin">作品</string>
-    <string name="text_dongtai">动态</string>
-</resources>

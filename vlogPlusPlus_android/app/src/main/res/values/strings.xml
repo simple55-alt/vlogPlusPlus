@@ -19,6 +19,17 @@
     <string name="inputSmsCode">请输入验证码</string>
     <string name="inputUsername">请输入用户名</string>
 
+    <!--修改密码需要的字符串-->
+    <string name="inputOldPasswd">请输入原密码</string>
+    <string name="inputNewPasswd">请输入新密码</string>
+    <string name="inputNewPasswdagain">请再一次输入新密码</string>
+    <string name="changepw">修改密码</string>
+
+    <!--修改绑定手机需要的字符串-->
+    <string name="inputOldphonenumber">请输入原手机号码</string>
+    <string name="inputNewphonenumber">请输入新手机号码</string>
+    <string name="changephonenumber">修改绑定手机</string>
+
     <!--视频编辑功能需要的字符串-->
     <string name="video_editing">MarvelEditor</string>
     <string name="save">Save</string>

@@ -22,7 +22,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".VDRemark_Adapter"/>
+        <activity android:name=".ModifyPhonenumber_page"></activity>
+        <activity android:name=".ChangePassword_page" />
+        <activity android:name=".VDRemark_Adapter" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +35,7 @@
         <activity android:name=".Registered" />
         <activity android:name=".Sign_in2" />
         <activity android:name=".Sign_in1" />
-        <activity android:name=".VideoDetails_page"/>
+        <activity android:name=".VideoDetails_page" />
         <activity
             android:name=".player.subtitle.SubtitleActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -43,11 +45,11 @@
         <activity
             android:name=".videoEditor.OptiMainActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"></activity> <!-- OptiTrimmerActivity -->
+            android:screenOrientation="portrait" /> <!-- OptiTrimmerActivity -->
         <activity
             android:name=".videoEditor.OptiTrimmerActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"></activity> <!-- FileProvider -->
+            android:screenOrientation="portrait" /> <!-- FileProvider -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

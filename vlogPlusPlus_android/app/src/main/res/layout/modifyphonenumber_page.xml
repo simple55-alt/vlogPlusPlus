@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChangePassword_page">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPink"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <RelativeLayout
+                android:id="@+id/goback1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/circle_white">
+
+                <Button
+                    android:id="@+id/go_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/left_arrow"
+                    android:gravity="center">
+
+                </Button>
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/changephonenumber"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true">
+
+            </TextView>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/hemi_curve_shpae">
+            <RelativeLayout
+                android:id="@+id/main_part"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:id="@+id/head_cp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp"
+                    android:layout_centerHorizontal="true"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/title1">
+                    </ImageView>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/old_phonenumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/shape1"
+                    android:layout_below="@+id/head_cp">
+                    <ImageView
+                        android:id="@+id/sym1"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@mipmap/phone2"  />
+
+                    <EditText
+                        android:id="@+id/et1"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/sym1"
+                        android:background="#00FFFFFF"
+                        android:hint="@string/inputOldphonenumber"
+                        android:inputType="textPassword" />
+                    <ImageView
+                        android:id="@+id/bt1"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignRight="@+id/et1"
+                        android:src="@mipmap/delete" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/new_phonenumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_alignLeft="@+id/old_phonenumber"
+                    android:background="@drawable/shape1"
+                    android:layout_below="@+id/old_phonenumber">
+
+                    <EditText
+                        android:id="@+id/et2"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/sym2"
+                        android:background="#00FFFFFF"
+                        android:hint="@string/inputNewphonenumber"
+                        android:inputType="textPassword" />
+                    <ImageView
+                        android:id="@+id/sym2"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@mipmap/phone" />
+                    <ImageView
+                        android:id="@+id/bt2"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignRight="@+id/et2"
+                        android:src="@mipmap/delete" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/verify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/new_phonenumber"
+                    android:layout_alignStart="@+id/old_phonenumber"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/shape1">
+                    <ImageView
+                        android:id="@+id/sym3"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@mipmap/phone1"  />
+                    <EditText
+                        android:id="@+id/et3"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_toEndOf="@+id/sym3"
+                        android:background="#00FFFFFF"
+                        android:hint="@string/inputSmsCode"
+                        android:inputType="textPassword" />
+                    <Button
+                        android:id="@+id/button_sendSmsCode"
+                        android:layout_width="60dp"
+                        android:layout_height="25dp"
+                        android:layout_alignEnd="@id/et3"
+                        android:background="@drawable/shape2"
+                        android:text="@string/sendCode"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="10sp"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/cpn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/verify"
+                    android:background="@drawable/curve_rect_pink"
+                    android:layout_marginTop="50dp">
+
+                    <Button
+                        android:id="@+id/button_cpn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/backgroundlucency"
+                        android:text="@string/changephonenumber"
+                        android:textColor="@color/white"
+                        android:gravity="center">
+
+                    </Button>
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

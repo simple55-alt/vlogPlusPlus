@@ -37,16 +37,19 @@
             android:layout_marginLeft="5dp">
             <ImageView
                 android:id="@+id/headp"
-                android:layout_width="20dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true">
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:src="@mipmap/title1">
 
             </ImageView>
             <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="(用户名称)"
+                android:text="@string/upload_name"
+                android:textSize="15dp"
+                android:textStyle="bold"
                 android:layout_toRightOf="@+id/headp"
                 android:layout_marginLeft="0dp">
 
@@ -55,7 +58,7 @@
                 android:id="@+id/uploadtime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="(上传时间)"
+                android:text="@string/upload_time"
                 android:layout_alignLeft="@+id/name"
                 android:layout_alignBottom="@+id/headp">
 
@@ -79,9 +82,11 @@
             <TextView
                 android:id="@+id/videotitle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
                 android:layout_marginLeft="5dp"
-                android:text="视频标题">
+                android:text="@string/titleofvideo">
 
             </TextView>
             <VideoView
@@ -95,8 +100,7 @@
     <RelativeLayout
         android:id="@+id/commentssection"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
         <TextView
             android:id="@+id/remartitle"
             android:layout_width="match_parent"
@@ -105,13 +109,39 @@
             android:text="热评论"
             android:textColor="@color/colorWhite">
         </TextView>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/remarker"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/remartitle">
-        </androidx.recyclerview.widget.RecyclerView>
         <RelativeLayout
+            android:id="@+id/remark"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@+id/remartitle"
+            android:layout_above="@+id/my_remark">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+<!--                android:layout_above="@id/moreremark"-->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/remarker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </androidx.recyclerview.widget.RecyclerView>
+            </RelativeLayout>
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/moreremark"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                >-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:text="查看更多评论"></TextView>-->
+<!--            </RelativeLayout>-->
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/my_remark"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@color/white"
@@ -124,16 +154,21 @@
                 android:layout_centerVertical="true"
                 android:hint="说点什么吧"
                 android:paddingLeft="5dp"
+                android:layout_toLeftOf="@+id/expression"
                 android:background="@color/backgroundlucency"
                 >
             </EditText>
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/expression"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
+                android:background="@color/backgroundlucency"
+                android:src="@mipmap/signin1"
                 ></ImageButton>
         </RelativeLayout>
     </RelativeLayout>
+
 </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,12 +16,12 @@
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="5dp">
             <com.vlogplusplus.CircleImageView
                 android:id="@+id/observerheadp"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:scaleType="centerCrop"
                 android:layout_alignParentLeft="true"
                 android:src="@mipmap/head_example">
@@ -49,26 +49,27 @@
                 android:layout_marginLeft="0dp">
 
             </TextView>
-            <TextView
-                android:id="@+id/commenttime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/remark_time"
-                android:paddingLeft="5dp"
-                android:layout_alignLeft="@+id/observername"
-                android:layout_alignBottom="@+id/observerheadp">
 
-            </TextView>
-            <TextView
-                android:id="@+id/reply"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="回复"
-                android:layout_alignTop="@+id/commenttime"
-                android:layout_toRightOf="@+id/commenttime"
-                android:layout_marginLeft="5dp">
-            </TextView>
         </RelativeLayout>
+        <TextView
+            android:id="@+id/commenttime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/remark_time"
+            android:paddingLeft="60dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentBottom="true">
+
+        </TextView>
+        <TextView
+            android:id="@+id/reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="回复"
+            android:layout_alignTop="@+id/commenttime"
+            android:layout_toRightOf="@+id/commenttime"
+            android:layout_marginLeft="5dp">
+        </TextView>
         <RelativeLayout
             android:layout_height="1px"
             android:layout_marginBottom="0dp"

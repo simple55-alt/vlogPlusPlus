@@ -34,12 +34,12 @@
         <RelativeLayout
             android:id="@+id/uploader"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="5dp">
             <com.vlogplusplus.CircleImageView
                 android:id="@+id/headp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_alignParentLeft="true"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/head_example">
@@ -50,10 +50,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/upload_name"
-                android:textSize="15dp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:layout_toRightOf="@+id/headp"
-                android:layout_marginLeft="0dp">
+                android:layout_marginLeft="10dp">
 
             </TextView>
             <TextView
@@ -70,7 +70,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:scaleType="fitXY"
-                android:tint="@color/colorGrey"
+                android:tint="@color/colorPink"
                 android:layout_centerVertical="true"
                 android:background="@color/backgroundlucency"
                 android:src="@mipmap/transmit"
@@ -81,25 +81,32 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:paddingRight="5dp"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/videotitle"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:textStyle="bold"
+                android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:layout_marginLeft="5dp"
                 android:text="@string/titleofvideo">
 
             </TextView>
-            <VideoView
-                android:id="@+id/videoplay"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp">
+                android:layout_height="280dp">
+                <VideoView
+                    android:id="@+id/videoplay"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center">
 
             </VideoView>
             </LinearLayout>
         </LinearLayout>
+    </LinearLayout>
     <RelativeLayout
         android:id="@+id/commentssection"
         android:layout_width="match_parent"
@@ -118,30 +125,29 @@
             android:layout_height="10dp"
             android:layout_below="@+id/remartitle"
             android:layout_above="@+id/my_remark">
-            <RelativeLayout
-                android:layout_width="wrap_content"
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true">
-<!--                android:layout_above="@id/moreremark"-->
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/remarker"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                </androidx.recyclerview.widget.RecyclerView>
-            </RelativeLayout>
-<!--            <RelativeLayout-->
-<!--                android:id="@+id/moreremark"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_centerHorizontal="true"-->
-<!--                android:layout_alignParentBottom="true"-->
-<!--                >-->
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="20dp"-->
-<!--                    android:text="查看更多评论"></TextView>-->
-<!--            </RelativeLayout>-->
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/remarker"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </androidx.recyclerview.widget.RecyclerView>
+                    <TextView
+                        android:id="@+id/more_remark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="查看更多评论"
+                        android:layout_gravity="center">
+
+                    </TextView>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/my_remark"

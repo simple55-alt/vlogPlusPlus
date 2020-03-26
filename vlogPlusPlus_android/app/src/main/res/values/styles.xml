@@ -9,6 +9,7 @@
         <!--视频编辑功能需要的属性-->
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
+        <item name="android:statusBarColor">@color/colorPink</item>
     </style>
 
     <style name="MediaController_SeekBar" parent="android:Widget.SeekBar">

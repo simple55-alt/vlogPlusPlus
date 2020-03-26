@@ -2,7 +2,14 @@ package com.vlogplusplus;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -12,6 +19,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,7 +29,7 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
     private View inflate;
     private Dialog dialog;
     private RecyclerView recyclerView_remark;
-    private RecyclerView.Adapter mAdapter;
+    private VDRemark_Adapter mAdapter;
     private LinearLayoutManager mLayoutManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +57,24 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         //创建适配器，并且设置
         mAdapter = new VDRemark_Adapter(this);
         recyclerView_remark.setAdapter(mAdapter);
+
+        //查看更多评论登录
+        TextView tv = findViewById(R.id.more_remark);
+        final SpannableStringBuilder style = new SpannableStringBuilder();
+        style.append("查看更多评论");
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View widget) {
+                for (int i=0;i<10;i++) {
+                    mAdapter.addData();
+                }
+            }
+        };
+        style.setSpan(clickableSpan, 0, 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(Color.parseColor("#000000"));
+        style.setSpan(foregroundColorSpan, 0, 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        tv.setMovementMethod(LinkMovementMethod.getInstance());
+        tv.setText(style);
     }
 
     private void bindView() {

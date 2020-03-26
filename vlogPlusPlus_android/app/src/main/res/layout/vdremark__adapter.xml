@@ -18,19 +18,21 @@
             android:layout_gravity="center"
             android:layout_height="70dp"
             android:layout_marginLeft="5dp">
-            <ImageView
+            <com.vlogplusplus.CircleImageView
                 android:id="@+id/observerheadp"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:scaleType="centerCrop"
                 android:layout_alignParentLeft="true"
-                android:src="@mipmap/title1">
+                android:src="@mipmap/head_example">
 
-            </ImageView>
+            </com.vlogplusplus.CircleImageView>
             <TextView
                 android:id="@+id/observername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/remark_name"
+                android:paddingLeft="5dp"
                 android:layout_toRightOf="@+id/observerheadp"
                 android:layout_alignParentTop="true">
 
@@ -41,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/remark_content"
                 android:textStyle="bold"
+                android:paddingLeft="5dp"
                 android:layout_below="@+id/observername"
                 android:layout_toRightOf="@+id/observerheadp"
                 android:layout_marginLeft="0dp">
@@ -51,6 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/remark_time"
+                android:paddingLeft="5dp"
                 android:layout_alignLeft="@+id/observername"
                 android:layout_alignBottom="@+id/observerheadp">
 

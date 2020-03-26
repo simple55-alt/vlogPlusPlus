@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -75,7 +76,7 @@ public class Sign_in1 extends AppCompatActivity {
         tv2.setText(style2);
 
         //登录按钮
-        Button signin = findViewById(R.id.button_signin);
+        ImageButton signin = findViewById(R.id.button_signin);
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

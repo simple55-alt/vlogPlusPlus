@@ -44,6 +44,7 @@
                 android:id="@+id/sym1"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:tint="@color/colorPink"
                 android:src="@mipmap/signin1"  />
 
             <EditText
@@ -84,6 +85,7 @@
                 android:id="@+id/sym2"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:tint="@color/colorPink"
                 android:src="@mipmap/phone"  />
 
             <EditText
@@ -99,6 +101,7 @@
                 android:id="@+id/bt2"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:tint="@color/colorGrey"
                 android:layout_alignRight="@+id/et2"
                 android:src="@mipmap/delete"  />
         </RelativeLayout>
@@ -114,6 +117,7 @@
                 android:id="@+id/sym3"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:tint="@color/colorPink"
                 android:src="@mipmap/signin2"  />
 
             <EditText
@@ -128,6 +132,7 @@
                 android:id="@+id/bt3"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:tint="@color/colorGrey"
                 android:layout_alignRight="@+id/et3"
                 android:src="@mipmap/delete" />
         </RelativeLayout>
@@ -153,11 +158,13 @@
                 android:id="@+id/sym5"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:tint="@color/colorPink"
                 android:src="@mipmap/signin2" />
             <ImageView
                 android:id="@+id/bt5"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:tint="@color/colorGrey"
                 android:layout_alignRight="@+id/et5"
                 android:src="@mipmap/delete" />
         </RelativeLayout>
@@ -173,6 +180,7 @@
                 android:id="@+id/sym4"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:tint="@color/colorPink"
                 android:src="@mipmap/message"  />
 
             <EditText
@@ -204,14 +212,17 @@
             android:background="@drawable/circle"
             android:layout_marginTop="150dp">
 
-            <Button
+            <ImageButton
                 android:id="@+id/button_register"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@mipmap/signin3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/signin3"
+                android:scaleType="centerCrop"
+                android:tint="@color/white"
+                android:background="@color/backgroundlucency"
                 android:gravity="center">
 
-            </Button>
+            </ImageButton>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="wrap_content"

@@ -26,7 +26,7 @@
 
     <!--评论需要的字符串-->
     <string name="remark_content">哎哟不错哦！</string>
-    <string name="remark_time">五分钟上传</string>
+    <string name="remark_time">五分钟前上传</string>
     <string name="remark_name">周杰伦</string>
 
     <!--修改密码需要的字符串-->

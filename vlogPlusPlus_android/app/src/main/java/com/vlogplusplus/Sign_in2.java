@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -150,7 +151,7 @@ public class Sign_in2 extends AppCompatActivity {
         });
 
         //登录按钮
-        Button button_signin = findViewById(R.id.button_signin);
+        ImageButton button_signin = findViewById(R.id.button_signin);
         button_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

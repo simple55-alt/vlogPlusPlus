@@ -58,11 +58,12 @@
                     android:layout_marginTop="100dp"
                     android:layout_centerHorizontal="true"
                     >
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/title1">
-                    </ImageView>
+                    <com.vlogplusplus.CircleImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/head_example">
+                    </com.vlogplusplus.CircleImageView>
                 </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/old_phonenumber"
@@ -75,6 +76,7 @@
                     <ImageView
                         android:id="@+id/sym1"
                         android:layout_width="25dp"
+                        android:tint="@color/colorPink"
                         android:layout_height="25dp"
                         android:src="@mipmap/phone2"  />
 
@@ -90,6 +92,7 @@
                         android:id="@+id/bt1"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
+                        android:tint="@color/colorGrey"
                         android:layout_alignRight="@+id/et1"
                         android:src="@mipmap/delete" />
                 </RelativeLayout>
@@ -113,6 +116,7 @@
                         android:inputType="textPassword" />
                     <ImageView
                         android:id="@+id/sym2"
+                        android:tint="@color/colorPink"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@mipmap/phone" />
@@ -120,6 +124,7 @@
                         android:id="@+id/bt2"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
+                        android:tint="@color/colorGrey"
                         android:layout_alignRight="@+id/et2"
                         android:src="@mipmap/delete" />
                 </RelativeLayout>
@@ -135,6 +140,7 @@
                         android:id="@+id/sym3"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
+                        android:tint="@color/colorPink"
                         android:src="@mipmap/phone1"  />
                     <EditText
                         android:id="@+id/et3"

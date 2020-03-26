@@ -45,6 +45,7 @@
                 android:id="@+id/sym1"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:tint="@color/colorPink"
                 android:src="@mipmap/signin1"  />
 
             <EditText
@@ -59,6 +60,7 @@
                 android:id="@+id/bt1"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:tint="@color/colorGrey"
                 android:layout_alignRight="@+id/et1"
                 android:src="@mipmap/delete"  />
         </RelativeLayout>
@@ -74,7 +76,8 @@
                 android:id="@+id/sym2"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:src="@mipmap/signin2"  />
+                android:src="@mipmap/signin2"
+                android:tint="@color/colorPink"/>
 
             <EditText
                 android:id="@+id/et2"
@@ -88,6 +91,7 @@
                 android:id="@+id/bt2"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:tint="@color/colorGrey"
                 android:layout_alignRight="@+id/et2"
                 android:src="@mipmap/delete" />
         </RelativeLayout>
@@ -114,14 +118,17 @@
             android:background="@drawable/circle"
             android:layout_marginTop="150dp">
 
-            <Button
+            <ImageButton
                 android:id="@+id/button_signin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@mipmap/signin3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@color/backgroundlucency"
+                android:scaleType="centerCrop"
+                android:tint="@color/white"
+                android:src="@mipmap/signin3"
                 android:gravity="center">
 
-            </Button>
+            </ImageButton>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="wrap_content"

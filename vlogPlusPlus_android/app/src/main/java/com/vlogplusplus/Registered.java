@@ -24,6 +24,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -202,7 +203,7 @@ public class Registered extends AppCompatActivity {
         });
 
         //注册按钮
-        Button button_register = findViewById(R.id.button_register);
+        ImageButton button_register = findViewById(R.id.button_register);
         button_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

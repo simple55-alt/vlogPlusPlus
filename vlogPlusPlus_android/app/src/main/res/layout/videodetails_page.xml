@@ -42,7 +42,8 @@
                 android:layout_height="60dp"
                 android:layout_alignParentLeft="true"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/head_example">
+                android:background="@drawable/head_border1"
+                android:src="@mipmap/head_example2">
 
             </com.vlogplusplus.CircleImageView>
             <TextView
@@ -50,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/upload_name"
-                android:textSize="25sp"
+                android:textSize="23sp"
                 android:textStyle="bold"
                 android:layout_toRightOf="@+id/headp"
                 android:layout_marginLeft="10dp">

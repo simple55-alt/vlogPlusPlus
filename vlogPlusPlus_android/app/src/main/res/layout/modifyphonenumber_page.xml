@@ -73,21 +73,24 @@
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/shape1"
                     android:layout_below="@+id/head_cp">
+
                     <ImageView
                         android:id="@+id/sym1"
                         android:layout_width="25dp"
-                        android:tint="@color/colorPink"
                         android:layout_height="25dp"
-                        android:src="@mipmap/phone2"  />
+                        android:src="@mipmap/signin2"
+                        android:tint="@color/colorPink" />
 
                     <EditText
                         android:id="@+id/et1"
                         android:layout_width="280dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
                         android:layout_toRightOf="@+id/sym1"
                         android:background="#00FFFFFF"
-                        android:hint="@string/inputOldphonenumber"
+                        android:hint="@string/inputPasswd"
                         android:inputType="textPassword" />
+
                     <ImageView
                         android:id="@+id/bt1"
                         android:layout_width="25dp"
@@ -113,13 +116,15 @@
                         android:layout_toRightOf="@+id/sym2"
                         android:background="#00FFFFFF"
                         android:hint="@string/inputNewphonenumber"
-                        android:inputType="textPassword" />
+                        android:inputType="number" />
+
                     <ImageView
                         android:id="@+id/sym2"
-                        android:tint="@color/colorPink"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:src="@mipmap/phone" />
+                        android:src="@mipmap/phone"
+                        android:tint="@color/colorPink" />
+
                     <ImageView
                         android:id="@+id/bt2"
                         android:layout_width="25dp"

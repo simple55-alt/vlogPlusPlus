@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#EEEEEE" />
+    <stroke android:width="6dp" android:color="@color/colorPink" />
+    <corners android:radius="360dip"/>
+    <!-- padding: Button 里面的文字与Button边界的间隔 -->
+</shape>

@@ -12,15 +12,15 @@ import java.util.List;
 
 public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.ViewHolder>{
     private LayoutInflater mInflater;
-    private List<String> mTitles;
+    private List<String> mName;
     private List<String> mContent;
     VDRemark_Adapter(Context context){
         this.mInflater=LayoutInflater.from(context);
-        this.mTitles=new ArrayList<String>();
+        this.mName=new ArrayList<String>();
         this.mContent=new ArrayList<String>();
         for (int i=0;i<10;i++){
             int index=i+1;
-            mTitles.add("周杰伦"+index);
+            mName.add("周杰伦"+index);
             mContent.add("哎哟，不错哦！");
         }
     }
@@ -38,18 +38,24 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
      */
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.name.setText(mTitles.get(position));
+        holder.name.setText(mName.get(position));
         holder.comment1.setText(mContent.get(position));
     }
 
+
+
     @Override
     public int getItemCount() {
-        return mTitles.size();
+        return mName.size();
+    }
+
+    public String getName(int position) {
+        return mName.get(position);
     }
     public void addData() {
 //      在list中添加数据，并通知条目加入一条
         int position=getItemCount() + 1;
-        mTitles.add("陈奕迅" + position);
+        mName.add("陈奕迅" + position);
         mContent.add("真的不错哦");
         //添加动画
         notifyItemInserted(position - 1);

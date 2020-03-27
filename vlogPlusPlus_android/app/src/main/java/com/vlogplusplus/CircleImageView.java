@@ -71,7 +71,7 @@ public class CircleImageView extends androidx.appcompat.widget.AppCompatImageVie
             bitmapShader.setLocalMatrix(matrix);
             mPaint.setShader(bitmapShader);
             //画圆形，指定好坐标，半径，画笔
-            canvas.drawCircle(mRadius, mRadius, mRadius, mPaint);
+            canvas.drawCircle(mRadius, mRadius, mRadius-6, mPaint);
         } else {
             super.onDraw(canvas);
         }

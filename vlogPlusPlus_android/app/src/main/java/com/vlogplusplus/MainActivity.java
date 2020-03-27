@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ChangePassword_page.class);
+                intent.putExtra("uid","1");
                 startActivity(intent);
             }
         });

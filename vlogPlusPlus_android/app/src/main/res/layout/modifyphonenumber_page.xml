@@ -113,6 +113,7 @@
                         android:id="@+id/et2"
                         android:layout_width="280dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
                         android:layout_toRightOf="@+id/sym2"
                         android:background="#00FFFFFF"
                         android:hint="@string/inputNewphonenumber"

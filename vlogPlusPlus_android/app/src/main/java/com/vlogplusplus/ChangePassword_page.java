@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.json.JSONObject;
@@ -109,6 +110,32 @@ public class ChangePassword_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        //清除按钮
+        ImageView clear_opw = findViewById(R.id.bt1);
+        clear_opw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText = findViewById(R.id.et1);
+                editText.setText("");
+            }
+        });
+        ImageView clear_npw = findViewById(R.id.bt2);
+        clear_npw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText = findViewById(R.id.et2);
+                editText.setText("");
+            }
+        });
+        ImageView clear_npw2 = findViewById(R.id.bt3);
+        clear_npw2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText = findViewById(R.id.et3);
+                editText.setText("");
             }
         });
     }

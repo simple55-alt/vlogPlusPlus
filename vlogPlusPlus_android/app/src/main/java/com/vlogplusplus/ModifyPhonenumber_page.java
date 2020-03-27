@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.Random;
@@ -47,6 +48,24 @@ public class ModifyPhonenumber_page extends AppCompatActivity {
 
                 }
 
+            }
+        });
+
+        //清除按钮
+        ImageView clear_pw = findViewById(R.id.bt1);
+        clear_pw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText = findViewById(R.id.et1);
+                editText.setText("");
+            }
+        });
+        ImageView clear_phone = findViewById(R.id.bt2);
+        clear_phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText = findViewById(R.id.et2);
+                editText.setText("");
             }
         });
 

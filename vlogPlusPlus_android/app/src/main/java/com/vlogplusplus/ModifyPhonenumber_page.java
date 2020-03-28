@@ -43,8 +43,9 @@ public class ModifyPhonenumber_page extends AppCompatActivity {
                     Toast.makeText(ModifyPhonenumber_page.this, "请输入新手机号码!", Toast.LENGTH_SHORT).show();
                 else if(code.equals(""))
                     Toast.makeText(ModifyPhonenumber_page.this, "请输入验证码!", Toast.LENGTH_SHORT).show();
-                else {
+                else { //验证密码是否正确
 
+                    //验证短信验证码是否正确
                 }
 
             }

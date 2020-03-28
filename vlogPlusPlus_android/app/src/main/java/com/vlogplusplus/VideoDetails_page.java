@@ -395,27 +395,20 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
     };
 
     private void switchResolution(final List<VideoPathObject> videopathList) {
-        resolution_switch
-                .setText(videopathList.get(videopathList.size() - 1).videoStatus);
+        resolution_switch.setText(videopathList.get(videopathList.size() - 1).videoStatus);
         mediacontroller_play_pause.setImageResource(R.drawable.player_play);
         final ResolutionAdapter adapter = new ResolutionAdapter(videopathList,
                 VideoDetails_page.this);
         resolution_listview.setAdapter(adapter);
-        resolution_listview
-                .setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
+        resolution_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> arg0, View arg1,
-                                            int position, long arg3) {
-
-                        VideoPathObject pathObject = videopathList
-                                .get(position);
+                    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                        VideoPathObject pathObject = videopathList.get(position);
                         adapter.changePosition(position);
                         resolution_switch.setText(pathObject.videoStatus);
                         resolution_listview.setVisibility(View.GONE);
                     }
                 });
-
     }
 
     public void showOrHideController() {
@@ -474,8 +467,7 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
     private void updatePausePlay() {
         if (videoView.isPlaying()) {
             videoView.pause();
-            mediacontroller_play_pause
-                    .setImageResource(R.drawable.player_pause);
+            mediacontroller_play_pause.setImageResource(R.drawable.player_pause);
         } else {
             videoView.start();
             mediacontroller_play_pause.setImageResource(R.drawable.player_play);
@@ -572,7 +564,6 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                // TODO Auto-generated method stub
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
                 Log.d("gaolei", "SCREEN_ORIENTATION_FULL_SENSOR");				}
         }, 5000);
@@ -580,7 +571,6 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        // TODO Auto-generated method stub
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN: {
                 showOrHideController();

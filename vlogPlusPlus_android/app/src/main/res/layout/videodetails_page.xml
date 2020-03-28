@@ -14,7 +14,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
-
             <ImageButton
                 android:id="@+id/back"
                 android:layout_width="30dp"
@@ -23,7 +22,6 @@
                 android:tint="@color/colorGrey"
                 android:background="@color/backgroundlucency"
                 android:src="@mipmap/back">
-
             </ImageButton>
         </LinearLayout>
         <LinearLayout
@@ -44,7 +42,6 @@
                     android:scaleType="centerCrop"
                     android:background="@drawable/head_border1"
                     android:src="@mipmap/head_example2">
-
                 </com.vlogplusplus.CircleImageView>
                 <TextView
                     android:id="@+id/name"
@@ -55,7 +52,6 @@
                     android:textStyle="bold"
                     android:layout_toRightOf="@+id/headp"
                     android:layout_marginLeft="10dp">
-
                 </TextView>
                 <TextView
                     android:id="@+id/uploadtime"
@@ -64,7 +60,6 @@
                     android:text="@string/upload_time"
                     android:layout_alignLeft="@+id/name"
                     android:layout_alignBottom="@+id/headp">
-
                 </TextView>
                 <ImageButton
                     android:id="@+id/transmitbutton"
@@ -76,7 +71,6 @@
                     android:background="@color/backgroundlucency"
                     android:src="@mipmap/transmit"
                     android:layout_alignParentRight="true">
-
                 </ImageButton>
             </RelativeLayout>
             <LinearLayout
@@ -93,7 +87,6 @@
                     android:textSize="20dp"
                     android:layout_marginLeft="5dp"
                     android:text="@string/titleofvideo">
-
                 </TextView>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -180,7 +173,6 @@
                             android:layout_height="wrap_content"
                             android:text="查看更多评论"
                             android:layout_gravity="center">
-
                         </TextView>
                     </LinearLayout>
                 </androidx.core.widget.NestedScrollView>
@@ -190,8 +182,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
-                android:layout_alignParentBottom="true"
-                >
+                android:layout_alignParentBottom="true">
                 <EditText
                     android:id="@+id/comment_my"
                     android:layout_width="match_parent"
@@ -200,8 +191,7 @@
                     android:hint="说点什么吧"
                     android:paddingLeft="5dp"
                     android:layout_toLeftOf="@+id/expression"
-                    android:background="@color/backgroundlucency"
-                    >
+                    android:background="@color/backgroundlucency">
                 </EditText>
                 <ImageButton
                     android:id="@+id/expression"
@@ -215,6 +205,5 @@
                     ></ImageButton>
             </RelativeLayout>
         </RelativeLayout>
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

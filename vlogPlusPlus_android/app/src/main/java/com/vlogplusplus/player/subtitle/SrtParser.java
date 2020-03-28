@@ -89,30 +89,31 @@ public class SrtParser {
             lastEndTime=srtList.get(srtList.size()-1).getEndTime();
             br.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         //每隔500ms执行一次()取
     }
 
     public static void showSRT(VideoView videoView,TextView tvSrt) {
-
         int currentPosition = videoView.getCurrentPosition();//vv是VideoView播放器
 
-        if(currentPosition>lastEndTime){
-            tvSrt.setVisibility(View.GONE);
-            return;
-        }
-        for(int i=0;i<srtList.size();i++){
-            SRT srtbean =srtList.get(i);
-            if (currentPosition > srtbean.getBeginTime()
-                    && currentPosition < srtbean.getEndTime()) {
-
-                tvSrt.setText(srtbean.getSrtBody());
-                //显示过的就删掉，提高查询效率
-                srtList.remove(i);
-                break;//找到后就没必要继续遍历下去，节约资源
+        try {
+            if (currentPosition > lastEndTime) {
+                tvSrt.setVisibility(View.GONE);
+                return;
             }
+            for (int i = 0; i < srtList.size(); i++) {
+                SRT srtbean = srtList.get(i);
+                if (currentPosition > srtbean.getBeginTime() && currentPosition < srtbean.getEndTime()) {
+                    tvSrt.setText(srtbean.getSrtBody());
+                    //显示过的就删掉，提高查询效率
+                    srtList.remove(i);
+                    break;//找到后就没必要继续遍历下去，节约资源
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.d("显示字幕","失败！");
         }
     }
 }

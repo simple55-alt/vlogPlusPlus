@@ -600,5 +600,7 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         super.onStop();
         videoView.pause();
         mediacontroller_play_pause.setImageResource(R.drawable.player_pause);
+        mHandler.removeMessages(PARSE_SRT);
+        mHandler.removeMessages(SHOW_PROGRESS);
     }
 }

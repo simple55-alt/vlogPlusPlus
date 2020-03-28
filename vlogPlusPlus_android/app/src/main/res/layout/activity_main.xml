@@ -47,6 +47,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/button_temp_test7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="模板选择"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/button_temp_test2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

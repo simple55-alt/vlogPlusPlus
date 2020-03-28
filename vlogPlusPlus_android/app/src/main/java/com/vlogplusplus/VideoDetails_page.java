@@ -534,7 +534,9 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         isPortraint = false;
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
-        videoview_layout.setLayoutParams(params);
+        LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT, videoViewHeight);
+        videoview_layout.setLayoutParams(params2);
         videoView.setLayoutParams(params);
         WindowManager.LayoutParams windowparams = getWindow().getAttributes();
         windowparams.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
@@ -548,7 +550,9 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         isPortraint = true;
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.MATCH_PARENT, videoViewHeight);
-        videoview_layout.setLayoutParams(params);
+        LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT, videoViewHeight);
+        videoview_layout.setLayoutParams(params2);
         videoView.setLayoutParams(params);
         WindowManager.LayoutParams windowparams = getWindow().getAttributes();
         windowparams.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);

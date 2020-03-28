@@ -128,7 +128,7 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         recyclerView_remark.setLayoutManager(mLayoutManager);
         recyclerView_remark.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         //创建适配器，并且设置
-        mAdapter = new VDRemark_Adapter(this);
+        mAdapter = new VDRemark_Adapter(this, getIntent().getIntExtra("video_id",0));
         recyclerView_remark.setAdapter(mAdapter);
 
         //查看更多评论登录
@@ -138,9 +138,10 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                for (int i=0;i<10;i++) {
-                    mAdapter.addData();
-                }
+                Toast.makeText(VideoDetails_page.this, "没有更多了！",Toast.LENGTH_SHORT).show();
+                //for (int i=0;i<10;i++) {
+                    //mAdapter.addData();
+                //}
             }
         };
         style.setSpan(clickableSpan, 0, 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);

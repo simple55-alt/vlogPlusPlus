@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, VideoDetails_page.class);
+                intent.putExtra("video_id",1);
                 intent.putExtra("video",Api.web+"video/1584265151782.mp4");
                 intent.putExtra("subtitle",Api.web+"subtitle/1584265151782.txt");
                 startActivity(intent);

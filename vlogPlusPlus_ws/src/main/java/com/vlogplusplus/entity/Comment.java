@@ -12,6 +12,8 @@ public class Comment {
     private String var;
     private String image;
     private int count;
+    private String nickname;
+    private String uimage;
 
     public int getId() {
         return id;
@@ -67,5 +69,21 @@ public class Comment {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getUimage() {
+        return uimage;
+    }
+
+    public void setUimage(String uimage) {
+        this.uimage = uimage;
     }
 }

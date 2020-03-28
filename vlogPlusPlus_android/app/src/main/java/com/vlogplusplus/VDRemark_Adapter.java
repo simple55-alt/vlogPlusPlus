@@ -1,12 +1,23 @@
 package com.vlogplusplus;
 
+import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import androidx.recyclerview.widget.RecyclerView;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,16 +25,48 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
     private LayoutInflater mInflater;
     private List<String> mName;
     private List<String> mContent;
-    VDRemark_Adapter(Context context){
+    private List<String> mTime;
+
+    VDRemark_Adapter(Context context, int video_id){
         this.mInflater=LayoutInflater.from(context);
         this.mName=new ArrayList<String>();
         this.mContent=new ArrayList<String>();
-        for (int i=0;i<10;i++){
-            int index=i+1;
-            mName.add("周杰伦"+index);
-            mContent.add("哎哟，不错哦！");
-        }
+        this.mTime=new ArrayList<String>();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    FormBody.Builder params = new FormBody.Builder();
+                    params.add("video",video_id+""); //添加url参数
+                    OkHttpClient client = new OkHttpClient();
+                    Request request = new Request.Builder()
+                            .url(Api.url+"/comment/listByVideo")
+                            .post(params.build()).build();
+                    Response response = client.newCall(request).execute(); //执行发送指令
+                    String responseData = response.body().string();
+                    Log.d("获取视频评论信息",responseData);
+                    if(!responseData.equals("")){
+                        JSONArray jsonArray = new JSONArray(responseData);
+                        for(int i=0;i<jsonArray.length();i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            int u_id = jsonObject.getInt("u_id");
+                            String nickname = jsonObject.getString("nickname");
+                            String c_time = jsonObject.getString("c_time");
+                            String var = jsonObject.getString("var");
+                            String uimage = jsonObject.getString("uimage");
+                            mName.add(nickname);
+                            mContent.add(var);
+                            mTime.add(c_time);
+                        }
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view=mInflater.inflate(R.layout.vdremark__adapter,parent,false);
@@ -40,9 +83,8 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.name.setText(mName.get(position));
         holder.comment1.setText(mContent.get(position));
+        holder.commenttime.setText(mTime.get(position));
     }
-
-
 
     @Override
     public int getItemCount() {
@@ -52,8 +94,8 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
     public String getName(int position) {
         return mName.get(position);
     }
-    public void addData() {
-//      在list中添加数据，并通知条目加入一条
+
+    public void addData() {//在list中添加数据，并通知条目加入一条
         int position=getItemCount() + 1;
         mName.add("陈奕迅" + position);
         mContent.add("真的不错哦");
@@ -61,6 +103,7 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
         notifyItemInserted(position - 1);
         notifyItemChanged(position - 1);
     }
+
     //自定义的ViewHolder，持有每个Item的的所有界面元素
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView headp;

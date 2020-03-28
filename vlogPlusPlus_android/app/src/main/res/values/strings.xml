@@ -41,6 +41,8 @@
     <string name="upload_time">三天前上传</string>
     <string name="upload_name">陈奕迅</string>
     <string name="remark_content">哎哟不错哦！</string>
+    <string name="remark_time">五分钟前上传</string>
+    <string name="remark_name">周杰伦</string>
 
     <!--模板选择需要的字符串-->
     <string name="template_title1">选择模板</string>
@@ -49,8 +51,6 @@
     <string name="template_title4">添加音乐</string>
 
     <!--修改密码需要的字符串-->
-    <string name="remark_time">五分钟前上传</string>
-    <string name="remark_name">周杰伦</string>
     <string name="inputOldPasswd">请输入原密码</string>
     <string name="inputNewPasswd">请输入新密码</string>
 

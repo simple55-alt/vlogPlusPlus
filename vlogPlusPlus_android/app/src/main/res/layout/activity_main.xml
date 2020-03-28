@@ -17,16 +17,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_temp_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="176dp"
-        android:text="测试视频"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/button_temp_test5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,20 +50,21 @@
         android:id="@+id/button_temp_test2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="296dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginBottom="236dp"
         android:text="测试登录"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_temp_test" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_temp_test3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="164dp"
         android:text="测试编辑"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button_temp_test" />
+        app:layout_constraintBottom_toTopOf="@+id/button_temp_test4"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/button_temp_test4"

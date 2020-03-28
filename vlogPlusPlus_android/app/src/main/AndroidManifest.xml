@@ -42,10 +42,7 @@
         <activity android:name=".VideoDetails_page"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="sensor"/>
-        <activity
-            android:name=".player.subtitle.SubtitleActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="sensor" /> <!-- 视频编辑功能 -->
+        <!-- 视频编辑功能 -->
         <!-- OptiSplashScreen -->
         <activity android:name=".videoEditor.OptiSplashScreen" /> <!-- MainActivity -->
         <activity

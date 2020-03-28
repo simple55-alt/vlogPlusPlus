@@ -16,17 +16,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = findViewById(R.id.button_temp_test);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SubtitleActivity.class);
-                intent.putExtra("video","http://192.168.100.12:8778/test.mp4");
-                intent.putExtra("subtitle","http://192.168.100.12:8778/test.txt");
-                startActivity(intent);
-            }
-        });
-
         Button button2 = findViewById(R.id.button_temp_test2);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override

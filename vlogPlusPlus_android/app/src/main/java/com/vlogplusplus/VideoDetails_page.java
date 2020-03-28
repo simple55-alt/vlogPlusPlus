@@ -154,9 +154,6 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
 
 
         //加载播放器组件
-        //FragmentManager fragmentManager = getSupportFragmentManager();
-        //Fragment fragment = new PlayerFragment();
-        //fragmentManager.beginTransaction().replace(R.id.frame_player, fragment).commit();
         videoView = (VideoView)this.findViewById(R.id.videoView );
         mAM = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         screenWidth = APPApplication.screenWidth;
@@ -530,12 +527,17 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
     }
 
     private void changeToFullScreen() {
-        Log.d("改变屏幕","changeToFullScreen");
+        LinearLayout backbutton = findViewById(R.id.backbutton);
+        LinearLayout videod = findViewById(R.id.videod);
+        RelativeLayout commentssection = findViewById(R.id.commentssection);
+        backbutton.setVisibility(View.GONE);
+        videod.setVisibility(View.GONE);
+        commentssection.setVisibility(View.GONE);
         isPortraint = false;
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
         LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(
-                RelativeLayout.LayoutParams.MATCH_PARENT, videoViewHeight);
+                RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
         videoview_layout.setLayoutParams(params2);
         videoView.setLayoutParams(params);
         WindowManager.LayoutParams windowparams = getWindow().getAttributes();
@@ -546,7 +548,12 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
     }
 
     private void changeToSmallScreen() {
-        Log.d("改变屏幕","changeToSmallScreen");
+        LinearLayout backbutton = findViewById(R.id.backbutton);
+        LinearLayout videod = findViewById(R.id.videod);
+        RelativeLayout commentssection = findViewById(R.id.commentssection);
+        backbutton.setVisibility(View.VISIBLE);
+        videod.setVisibility(View.VISIBLE);
+        commentssection.setVisibility(View.VISIBLE);
         isPortraint = true;
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.MATCH_PARENT, videoViewHeight);

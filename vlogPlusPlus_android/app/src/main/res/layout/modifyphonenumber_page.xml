@@ -46,7 +46,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/hemi_curve_shpae">
+            android:background="@drawable/hemi_curve_shape">
             <RelativeLayout
                 android:id="@+id/main_part"
                 android:layout_width="match_parent"

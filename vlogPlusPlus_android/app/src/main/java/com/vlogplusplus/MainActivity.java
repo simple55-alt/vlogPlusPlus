@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import com.vlogplusplus.player.subtitle.SubtitleActivity;
+import com.vlogplusplus.template.TemplateSelection_page;
 import com.vlogplusplus.videoEditor.OptiMainActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,6 +69,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ModifyPhonenumber_page.class);
                 intent.putExtra("uid","1");
+                startActivity(intent);
+            }
+        });
+        Button button7 = findViewById(R.id.button_temp_test7);
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TemplateSelection_page.class);
                 startActivity(intent);
             }
         });

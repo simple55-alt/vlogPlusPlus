@@ -22,7 +22,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".ModifyPhonenumber_page"/>
+        <activity android:name=".template.TemplateSelection_Adapter"></activity>
+        <activity android:name=".template.TemplateFilled_page" />
+        <activity android:name=".template.TemplateSelection_page" />
+        <activity android:name=".ModifyPhonenumber_page" />
         <activity android:name=".ChangePassword_page" />
         <activity android:name=".VDRemark_Adapter" />
         <activity android:name=".MainActivity"

@@ -1,7 +1,22 @@
 <resources>
-    <string name="app_name">VLOG++</string>
+    <style name="ActionSheetDialogStyle" parent="@android:style/Theme.Dialog">
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowContentOverlay">@null</item>        <!-- 浮于Activity之上 -->
+        <item name="android:windowIsFloating">true</item>        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>        <!-- Dialog以外的区域模糊效果 -->
+        <item name="android:backgroundDimEnabled">true</item>        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>        <!-- Dialog进入及退出动画 -->
+        <item name="android:windowAnimationStyle">@style/ActionSheetDialogAnimation</item>
+    </style>
 
     <!--登录功能需要的字符串-->
+    <style name="ActionSheetDialogAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/dialog_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_out</item>
+    </style>
+    <string name="app_name">VLOG++</string>
     <string name="signin1_usrname">请输入用户名/邮箱/手机号</string>
     <string name="signin2_usrname">请输入手机号码</string>
     <string name="inputPasswd">请输入密码</string>
@@ -16,47 +31,47 @@
     <string name="checkUsrname">检测可用性</string>
     <string name="usrnameChecked">用户名可用</string>
     <string name="inputPhoneNumber">请输入手机号码</string>
-    <string name="inputSmsCode">请输入验证码</string>
-    <string name="inputUsername">请输入用户名</string>
 
     <!--视频详情需要的字符串-->
+    <string name="inputSmsCode">请输入验证码</string>
+    <string name="inputUsername">请输入用户名</string>
     <string name="titleofvideo">擎天柱大战黑猫警长</string>
-    <string name="upload_time">三天前上传</string>
-    <string name="upload_name">陈奕迅</string>
 
     <!--评论需要的字符串-->
+    <string name="upload_time">三天前上传</string>
+    <string name="upload_name">陈奕迅</string>
     <string name="remark_content">哎哟不错哦！</string>
-    <string name="remark_time">五分钟前上传</string>
-    <string name="remark_name">周杰伦</string>
 
     <!--修改密码需要的字符串-->
+    <string name="remark_time">五分钟前上传</string>
+    <string name="remark_name">周杰伦</string>
     <string name="inputOldPasswd">请输入原密码</string>
     <string name="inputNewPasswd">请输入新密码</string>
+
+    <!--修改绑定手机需要的字符串-->
     <string name="inputNewPasswdagain">请再一次输入新密码</string>
     <string name="changepw">修改密码</string>
 
-    <!--修改绑定手机需要的字符串-->
+    <!--视频编辑功能需要的字符串-->
     <string name="inputNewphonenumber">请输入新手机号码</string>
     <string name="changephonenumber">修改绑定手机</string>
-
-    <!--视频编辑功能需要的字符串-->
     <string name="video_editing">MarvelEditor</string>
     <string name="save">Save</string>
     <string name="processing_video">Processing Video</string>
     <string name="video_1">Video 1</string>
     <string name="video_2">Video 2</string>
+
     <string name="select_music">Select music</string>
     <string name="label">Label</string>
-
     <string name="error_filter">Select the video which you want to add filter animation</string>
     <string name="error_crop">Select the video which you want to add crop</string>
     <string name="error_music">Select the video which you want to merge the audio</string>
     <string name="error_speed">Select the video which you want to add speed animation</string>
     <string name="error_text">Select the video which you want to add text inside video</string>
     <string name="error_sticker">Select the video which you want to add sticker inside video</string>
+
     <string name="error_merge">Select 2 videos which you want to merge</string>
     <string name="error_transition">Select the video which you want to perform transition</string>
-
     <string name="error_select_sticker">Select the sticker which you want to show inside the video</string>
     <string name="error_select_sticker_pos">Select the position where you want to show the sticker</string>
     <string name="error_add_text">Add the text which you want to show inside the video</string>
@@ -64,17 +79,17 @@
     <string name="error_select_speed">Select the playback speed which you want to apply to the video</string>
     <string name="error_select_filter">Select the filter which you want to apply to the video</string>
     <string name="error_select_smaller_video">Select the video smaller than 4 minutes</string>
+
     <string name="play_time">Play Time</string>
     <string name="enter_text_here">Enter text here</string>
-
     <string name="save_video">Would you like to save your edited video?</string>
+
     <string name="Continue">Continue</string>
     <string name="successfully_saved">Your video was successfully saved</string>
-
     <string name="not_supported_video">Video format is not supported. Would you like to convert avi to mp4 format?</string>
+
     <string name="yes">Yes</string>
     <string name="no">No</string>
-
     <string name="short_seconds">sec</string>
     <string name="megabyte">MB</string>
     <string name="kilobyte">KB</string>
@@ -82,28 +97,16 @@
     <string name="cancel">Cancel</string>
     <string name="select_a_video">Select a video</string>
     <string name="select_action">Select Action</string>
+
+    <!--Player-->
     <string name="select_video_from_gallery">Select video from gallery</string>
     <string name="record_video_from_camera">Record video from camera</string>
 
-    <!--Player-->
     <string name="dummy_button">Dummy Button</string>
+    <!-- ActionSheet进出动画 -->
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
-    <style name="ActionSheetDialogStyle" parent="@android:style/Theme.Dialog">
-        <!-- 背景透明 -->
-        <item name="android:windowBackground">@android:color/white</item>
-        <item name="android:windowContentOverlay">@null</item>        <!-- 浮于Activity之上 -->
-        <item name="android:windowIsFloating">true</item>        <!-- 边框 -->
-        <item name="android:windowFrame">@null</item>        <!-- Dialog以外的区域模糊效果 -->
-        <item name="android:backgroundDimEnabled">true</item>        <!-- 无标题 -->
-        <item name="android:windowNoTitle">true</item>        <!-- 半透明 -->
-        <item name="android:windowIsTranslucent">true</item>        <!-- Dialog进入及退出动画 -->
-        <item name="android:windowAnimationStyle">@style/ActionSheetDialogAnimation</item>
-    </style>
-    <!-- ActionSheet进出动画 -->
-    <style name="ActionSheetDialogAnimation" parent="@android:style/Animation.Dialog">
-        <item name="android:windowEnterAnimation">@anim/dialog_in</item>
-        <item name="android:windowExitAnimation">@anim/dialog_out</item>
-    </style>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, VideoDetails_page.class);
+                intent.putExtra("video","http://192.168.100.12:8778/test.mp4");
+                intent.putExtra("subtitle","http://192.168.100.12:8778/test.txt");
                 startActivity(intent);
             }
         });

@@ -45,7 +45,6 @@ import java.util.TimerTask;
  * 2、设置ActivityInfo的sensor来实现横竖屏，然后进行VideoView的大小屏切换，即使横竖屏切换被禁止也能用，
  */
 public class SubtitleActivity extends Activity implements View.OnClickListener,OnTouchListener{
-
 	private VideoView videoView ;
 	TextView tvSrt, mCurrentTime,mTotalTime,resolution_switch,mediacontroller_file_name;
 	ImageView mediacontroller_play_pause,switch_screen;
@@ -58,7 +57,6 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 	private static final int SHOW_PROGRESS = 2;
 	private static final int CHANGE_VIDEOVIEW_BG = 3;
 	private static final int SCREEN_ORIENTATION_USER = 4;
-
 	private static final int sDefaultTimeout = 3000;
 	private RelativeLayout videoview_layout, mMediaController;
 	private ListView resolution_listview;
@@ -66,7 +64,6 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 	private static int LockScreen = -1;// 用于记录是否关闭屏幕旋转，0为关闭1为开启
 	private int screenWidth,videoViewHeight;
 	List<VideoPathObject> videopathList=new ArrayList<VideoPathObject>();
-
 	Handler mHandler=new Handler(){
 		public void handleMessage(Message msg){
 			long pos;
@@ -85,7 +82,6 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 						msg = obtainMessage(SHOW_PROGRESS);
 						sendMessageDelayed(msg, 1000 - (pos % 1000));
 					}
-
 					break;
 				case CHANGE_VIDEOVIEW_BG:
 					videoView.setBackgroundColor(0x00000000);
@@ -94,6 +90,7 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 
 		}
 	};
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -186,8 +183,7 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 		switchResolution(videopathList);
 	}
 
-	class MyPlayerOnCompletionListener implements MediaPlayer.OnCompletionListener {
-
+	public class MyPlayerOnCompletionListener implements MediaPlayer.OnCompletionListener {
 		@Override
 		public void onCompletion(MediaPlayer mp) {
 			Toast.makeText( SubtitleActivity.this, "播放完成了", Toast.LENGTH_SHORT).show();
@@ -221,6 +217,7 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 			mHandler.sendEmptyMessageDelayed(SHOW_PROGRESS, 1000);
 		}
 	};
+
 	private void switchResolution(final List<VideoPathObject> videopathList) {
 		resolution_switch
 				.setText(videopathList.get(videopathList.size() - 1).videoStatus);
@@ -244,8 +241,8 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 				});
 
 	}
-	public void showOrHideController() {
 
+	public void showOrHideController() {
 		if (mShowing) {
 			mHandler.removeMessages(SHOW_PROGRESS);
 			mHandler.removeMessages(FADE_OUT);
@@ -259,9 +256,11 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 			mShowing = true;
 		}
 	}
+
 	public void hideMediaController(int sDefaultTimeout) {
 		mHandler.sendEmptyMessageDelayed(FADE_OUT, sDefaultTimeout);
 	}
+
 	private long setControllerProgress() {
 		if (videoView == null || mDragging)
 			return 0;
@@ -282,6 +281,7 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 
 		return position;
 	}
+
 	private static String generateTime(long position) {
 		int totalSeconds = (int) (position / 1000);
 
@@ -296,6 +296,7 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 					.toString();
 		}
 	}
+
 	private void updatePausePlay() {
 		if (videoView.isPlaying()) {
 			videoView.pause();
@@ -306,6 +307,7 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 			mediacontroller_play_pause.setImageResource(R.drawable.player_play);
 		}
 	}
+
 	public void showResolution(View view) {
 		if (!isResolution) {
 			resolution_listview.setVisibility(View.VISIBLE);
@@ -315,6 +317,7 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 			isResolution = false;
 		}
 	}
+
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
 		if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -359,13 +362,11 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		videoview_layout.setLayoutParams(params);
 		videoView.setLayoutParams(params);
-
 		WindowManager.LayoutParams windowparams = getWindow().getAttributes();
 		windowparams.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
 		getWindow().setAttributes(windowparams);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 		switch_screen.setImageResource(R.drawable.player_switch_small);
-
 	}
 
 	private void changeToSmallScreen() {
@@ -380,7 +381,6 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 		getWindow()
 				.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 		switch_screen.setImageResource(R.drawable.player_switch_big);
-
 	}
 
 	public void autoSwitchScreenOrientation() {
@@ -394,6 +394,7 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 		}, 5000);
 //		}
 	}
+
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		// TODO Auto-generated method stub
@@ -405,6 +406,7 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 		}
 		return false;
 	}
+
 	@Override
 	public void onClick(View view) {
 		// TODO Auto-generated method stub
@@ -424,6 +426,7 @@ public class SubtitleActivity extends Activity implements View.OnClickListener,O
 		videoView.start();
 		mediacontroller_play_pause.setImageResource(R.drawable.player_play);
 	}
+
 	public void onStop(){
 		super.onStop();
 		videoView.pause();

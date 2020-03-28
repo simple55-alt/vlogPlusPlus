@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import java.util.Random;
 
 public class ModifyPhonenumber_page extends AppCompatActivity {
@@ -44,11 +46,63 @@ public class ModifyPhonenumber_page extends AppCompatActivity {
                     Toast.makeText(ModifyPhonenumber_page.this, "请输入新手机号码!", Toast.LENGTH_SHORT).show();
                 else if(code.equals(""))
                     Toast.makeText(ModifyPhonenumber_page.this, "请输入验证码!", Toast.LENGTH_SHORT).show();
-                else { //验证密码是否正确
-
-                    //验证短信验证码是否正确
+                else { //短信验证码是否正确
+                    if(code.equals(msgCode+"")){
+                        new Thread(new Runnable() {//验证密码是否正确验证
+                            @Override
+                            public void run() {
+                                try{
+                                    String oldPass = MD5Utils.encode(passwd); //输入的密码
+                                    FormBody.Builder params = new FormBody.Builder();
+                                    params.add("u_id",getIntent().getStringExtra("uid")); //添加url参数
+                                    OkHttpClient client = new OkHttpClient();
+                                    Request request = new Request.Builder()
+                                            .url(Api.url + "/user/get_user")
+                                            .post(params.build()).build();
+                                    Response response = client.newCall(request).execute(); //执行发送指令
+                                    String responseData = response.body().string();
+                                    JSONObject jsonObject = new JSONObject(responseData);
+                                    String oldpswd = jsonObject.getString("password");
+                                    if(oldPass.equals(oldpswd)) { //密码验证通过，进行新手机号的写入操作
+                                        String json = "{\"u_id\": " + getIntent().getStringExtra("uid")
+                                                + ", \"phone\": \"" + newphone + "\"}";
+                                        client = new OkHttpClient();
+                                        request = new Request.Builder()
+                                                .url(Api.url + "/user/update_phone")
+                                                .post(RequestBody.create(MediaType.parse("application/json"), json))
+                                                .build();
+                                        response = client.newCall(request).execute(); //执行发送指令
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Toast.makeText(ModifyPhonenumber_page.this, "修改手机号成功!", Toast.LENGTH_SHORT).show();
+                                                password.setText("");
+                                                newPhone.setText("");
+                                                Code.setText("");
+                                            }
+                                        });
+                                    }else { //密码错误
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Toast.makeText(ModifyPhonenumber_page.this, "密码错误!", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                    }
+                                }catch (Exception e){
+                                    e.printStackTrace();
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(ModifyPhonenumber_page.this, "修改手机号失败!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
+                            }
+                        }).start();
+                    }else
+                        Toast.makeText(ModifyPhonenumber_page.this, "短信验证码错误!", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 

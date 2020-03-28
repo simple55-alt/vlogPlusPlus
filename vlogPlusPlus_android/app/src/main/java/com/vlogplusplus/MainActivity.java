@@ -1,13 +1,12 @@
 package com.vlogplusplus;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import com.vlogplusplus.player.subtitle.SubtitleActivity;
 import com.vlogplusplus.template.TemplateSelection_page;
 import com.vlogplusplus.videoEditor.OptiMainActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, VideoDetails_page.class);
-                intent.putExtra("video","http://192.168.100.12:8778/test.mp4");
-                intent.putExtra("subtitle","http://192.168.100.12:8778/test.txt");
+                intent.putExtra("video",Api.web+"video/1584265151782.mp4");
+                intent.putExtra("subtitle",Api.web+"subtitle/1584265151782.txt");
                 startActivity(intent);
             }
         });

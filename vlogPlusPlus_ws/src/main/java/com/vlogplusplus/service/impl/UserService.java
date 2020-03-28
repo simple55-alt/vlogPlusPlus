@@ -43,6 +43,11 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public void update_phone(String phone, int u_id) {
+        iUserDao.update_phone(phone, u_id);
+    }
+
+    @Override
     public void del(int u_id) {
         iUserDao.del(u_id);
     }

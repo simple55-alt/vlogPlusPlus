@@ -43,6 +43,11 @@ public class UserController {
         iUserService.update_pass(user.getPassword(),user.getU_id());
     }
 
+    @RequestMapping(value = "/update_phone", method = RequestMethod.POST)
+    private void update_phone(@RequestBody User user) {
+        iUserService.update_phone(user.getPhone(),user.getU_id());
+    }
+
     @RequestMapping(value = "/del", method = RequestMethod.POST)
     private void del(@RequestParam int u_id) {
         iUserService.del(u_id);

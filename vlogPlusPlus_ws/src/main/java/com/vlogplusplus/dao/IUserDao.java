@@ -16,6 +16,7 @@ public interface IUserDao {
              @Param("phone") String phone, @Param("image") String image,
              @Param("sex") byte sex, @Param("birthday") Date birthday,@Param("fashion") String fashion);
     void update_pass(@Param("password") String password,@Param("u_id") int u_id);
+    void update_phone(@Param("phone") String phone,@Param("u_id") int u_id);
     void del(@Param("u_id") int u_id);
     void update_detail(@Param("nickname") String nickname,@Param("email") String email,@Param("phone") String phone,@Param("image") String image,
                        @Param("sex") byte sex,@Param("birthday") Date birthday,@Param("fashion") String fashion,@Param("u_id") int u_id );

@@ -275,7 +275,7 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         dialog.show();//显示对话框
     }
 
-    public void remarkDialog() {
+    public void remarkDialog() {  //发布新评论
         dialog = new Dialog(this,R.style.ActionSheetDialogStyle);//填充对话框的布局
         inflate = LayoutInflater.from(this).inflate(R.layout.remark_dialog, null);        //初始化控件
         //将布局设置给Dialog
@@ -343,14 +343,13 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         dialog.show();//显示对话框
     }
 
-    public void replyDialog(int position) {
+    public void replyDialog(int position) {  //回复评论
         dialog = new Dialog(this,R.style.ActionSheetDialogStyle);//填充对话框的布局
         inflate = LayoutInflater.from(this).inflate(R.layout.remark_dialog, null);        //初始化控件
         //设置 输入提醒——回复对象
-        EditText reply_to=(EditText) inflate.findViewById(R.id.reply_content);
-//        SpannableString s = new SpannableString(mAdapter.getName(position));
+        final EditText reply_to=(EditText) inflate.findViewById(R.id.reply_content);
+        //SpannableString s = new SpannableString(mAdapter.getName(position));
         reply_to.setHint("@"+mAdapter.getName(position));
-
         //将布局设置给Dialog
         dialog.setContentView(inflate);
         //获取当前Activity所在的窗体
@@ -365,16 +364,53 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         DisplayMetrics dm = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;// 屏幕宽度（像素）
-//        int height= dm.heightPixels; // 屏幕高度（像素）
+        //int height= dm.heightPixels; // 屏幕高度（像素）
         float density = dm.density;//屏幕密度（0.75 / 1.0 / 1.5）
         int densityDpi = dm.densityDpi;//屏幕密度dpi（120 / 160 / 240）
-
         WindowManager.LayoutParams layoutParams = dialog.getWindow().getAttributes();
         //这个地方可以用ViewGroup.LayoutParams.MATCH_PARENT属性，各位试试看看有没有效果
         layoutParams.width = width;
-//        layoutParams.height = height;
-//       将属性设置给窗体
+        //layoutParams.height = height;
+        //将属性设置给窗体
         dialogWindow.setAttributes(lp);
+        Button fb = inflate.findViewById(R.id.fb);
+        fb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String var = "@"+mAdapter.getName(position)+" "+reply_to.getText().toString();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            String json = "{\"u_id\":" + u_id + ", \"target_id\":" + video_id
+                                    + ",\"var\":\"" + var + "\",\"image\":\"\",\"count\":0}";
+                            OkHttpClient client = new OkHttpClient();
+                            Request request = new Request.Builder()
+                                    .url(Api.url + "/comment/add")
+                                    .post(RequestBody.create(MediaType.parse("application/json"), json))
+                                    .build();
+                            Response response = client.newCall(request).execute(); //执行发送指令
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(VideoDetails_page.this, "回复评论成功！", Toast.LENGTH_SHORT).show();
+                                    mAdapter.addData(nickname,var);
+                                    reply_to.setText("");
+                                }
+                            });
+                        }catch (Exception e){
+                            e.printStackTrace();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(VideoDetails_page.this, "回复评论失败！", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    }
+                }).start();
+            }
+        });
         dialog.show();//显示对话框
     }
 

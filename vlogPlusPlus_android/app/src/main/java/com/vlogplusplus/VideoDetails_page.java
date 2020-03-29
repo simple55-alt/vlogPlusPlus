@@ -247,6 +247,12 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
     public void transmitDialog() { //转发动态
         dialog = new Dialog(this,R.style.ActionSheetDialogStyle);        //填充对话框的布局
         inflate = LayoutInflater.from(this).inflate(R.layout.transmit_dialog, null);        //初始化控件
+        TextView authorName = inflate.findViewById(R.id.name);
+        authorName.setText("@"+nickname); //设置作者名字
+        TextView videoTitle = inflate.findViewById(R.id.videoTitle);
+        videoTitle.setText(getIntent().getStringExtra("video_title"));
+        MyImageView myImageView = inflate.findViewById(R.id.videop); //设置用户头像
+        myImageView.setImageURL(getIntent().getStringExtra("author_headimg"));
         Button cancelbutton =(Button) inflate.findViewById(R.id.tranmits_cancle);
         cancelbutton.setOnClickListener(this);
         //将布局设置给Dialog
@@ -276,7 +282,10 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(VideoDetails_page.this,"转发成功！",Toast.LENGTH_SHORT).show();
+                EditText editText = inflate.findViewById(R.id.et_input);
+                String var = editText.getText().toString();
+                Toast.makeText(VideoDetails_page.this,"转发成功！"+var,Toast.LENGTH_SHORT).show();
+                editText.setText("");
             }
         });
         dialog.show();//显示对话框

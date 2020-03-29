@@ -14,7 +14,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="转发动态"/>
-
         <TextView
             android:id="@+id/ok"
             android:layout_width="wrap_content"
@@ -23,7 +22,6 @@
             android:background="@color/backgroundlucency"
             android:text="立即转发"
             android:textColor="@color/colorPink"/>
-
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +36,6 @@
             android:layout_height="wrap_content"
             android:background="@color/backgroundlucency"
             android:hint="说点什么吧">
-
         </EditText>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -52,25 +49,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@周杰伦">
-
             </TextView>
-            <ImageView
+            <com.vlogplusplus.MyImageView
                 android:id="@+id/videop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@mipmap/title1"
                 android:layout_below="@+id/name">
-
-            </ImageView>
+            </com.vlogplusplus.MyImageView>
             <TextView
+                android:id="@+id/videoTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="擎天柱大战黑猫警长"
-                android:layout_toRightOf="@+id/videop"
                 android:layout_alignTop="@+id/videop"
+                android:layout_toRightOf="@+id/videop"
+                android:paddingLeft="5dp"
                 android:paddingTop="5dp"
-                android:paddingLeft="5dp">
-
+                android:text="擎天柱大战黑猫警长">
             </TextView>
         </RelativeLayout>
     </LinearLayout>
@@ -85,7 +80,5 @@
             android:background="@color/white"
             android:textColor="@color/colorGrey"
             android:text="取消" />
-
-
     </LinearLayout>
 </LinearLayout>

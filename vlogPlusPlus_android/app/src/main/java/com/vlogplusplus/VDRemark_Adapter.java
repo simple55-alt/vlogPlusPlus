@@ -2,6 +2,7 @@ package com.vlogplusplus;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,12 +28,14 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
     private List<String> mName;
     private List<String> mContent;
     private List<String> mTime;
+    private List<String> mHeadImg;
 
     VDRemark_Adapter(Context context, int video_id){
         this.mInflater=LayoutInflater.from(context);
         this.mName=new ArrayList<String>();
         this.mContent=new ArrayList<String>();
         this.mTime=new ArrayList<String>();
+        this.mHeadImg=new ArrayList<String>();
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -58,8 +61,7 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
                             mName.add(nickname);
                             mContent.add(var);
                             mTime.add(c_time);
-                            notifyItemInserted(i);
-                            //notifyItemChanged(i);
+                            mHeadImg.add(uimage);
                         }
                     }
                 }catch (Exception e){
@@ -86,6 +88,7 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
         holder.name.setText(mName.get(position));
         holder.comment1.setText(mContent.get(position));
         holder.commenttime.setText(mTime.get(position));
+        holder.headp.setImageURL(Api.web+mHeadImg.get(position));
     }
 
     @Override
@@ -98,9 +101,9 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
     }
 
     public void addData(String nickname, String var) {//在list中添加数据，并通知条目加入一条
-        mName.add(nickname);
-        mContent.add(var);
-        mTime.add("刚刚发布");
+        mName.add(0,nickname);
+        mContent.add(0,var);
+        mTime.add(0,"刚刚发布");
         //添加动画
         notifyItemInserted(0);
         notifyItemChanged(0);
@@ -108,14 +111,14 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
 
     //自定义的ViewHolder，持有每个Item的的所有界面元素
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView headp;
+        public CircleImageView headp;
         public TextView name;
         public TextView comment1;
         public TextView commenttime;
 
         ViewHolder(View view){
             super(view);
-            headp = (ImageView)view.findViewById(R.id.observerheadp);
+            headp = view.findViewById(R.id.observerheadp);
             name = (TextView)view.findViewById(R.id.observername);
             comment1 = (TextView)view.findViewById(R.id.comment);
             commenttime = (TextView)view.findViewById(R.id.commenttime);

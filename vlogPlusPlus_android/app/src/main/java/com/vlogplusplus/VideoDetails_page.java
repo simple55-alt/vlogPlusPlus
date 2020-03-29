@@ -51,6 +51,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class VideoDetails_page extends AppCompatActivity implements View.OnClickListener, View.OnTouchListener {
     private View inflate;
@@ -58,6 +63,9 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
     private RecyclerView recyclerView_remark;
     private VDRemark_Adapter mAdapter;
     private LinearLayoutManager mLayoutManager;
+    private int video_id = 0;
+    private int u_id = 0; //当前登录用户id
+    private String nickname = ""; //当前登录用户昵称
     //播放器所需要的成员
     private VideoView videoView ;
     TextView tvSrt, mCurrentTime,mTotalTime,resolution_switch,mediacontroller_file_name;
@@ -108,6 +116,9 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.videodetails_page);
 
+        video_id = getIntent().getIntExtra("video_id",0);
+        u_id = getIntent().getIntExtra("u_id",0);
+        nickname = getIntent().getStringExtra("nickname");
         ImageButton backb = findViewById(R.id.back);
         backb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,7 +139,7 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         recyclerView_remark.setLayoutManager(mLayoutManager);
         recyclerView_remark.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         //创建适配器，并且设置
-        mAdapter = new VDRemark_Adapter(this, getIntent().getIntExtra("video_id",0));
+        mAdapter = new VDRemark_Adapter(this, video_id);
         recyclerView_remark.setAdapter(mAdapter);
 
         //查看更多评论登录
@@ -139,9 +150,6 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View widget) {
                 Toast.makeText(VideoDetails_page.this, "没有更多了！",Toast.LENGTH_SHORT).show();
-                //for (int i=0;i<10;i++) {
-                    //mAdapter.addData();
-                //}
             }
         };
         style.setSpan(clickableSpan, 0, 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -149,9 +157,6 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         style.setSpan(foregroundColorSpan, 0, 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         tv.setMovementMethod(LinkMovementMethod.getInstance());
         tv.setText(style);
-
-        //回复
-
 
 
         //加载播放器组件
@@ -265,7 +270,6 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
     public void remarkDialog() {
         dialog = new Dialog(this,R.style.ActionSheetDialogStyle);//填充对话框的布局
         inflate = LayoutInflater.from(this).inflate(R.layout.remark_dialog, null);        //初始化控件
-
         //将布局设置给Dialog
         dialog.setContentView(inflate);
         //获取当前Activity所在的窗体
@@ -289,6 +293,45 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
 //        layoutParams.height = height;
 //       将属性设置给窗体
         dialogWindow.setAttributes(lp);
+        final EditText editText = inflate.findViewById(R.id.reply_content);
+        Button fb = inflate.findViewById(R.id.fb);
+        fb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try{
+                            String var = editText.getText().toString();
+                            String json = "{\"u_id\":" + u_id + ", \"target_id\":" + video_id
+                                    + ",\"var\":\"" + var + "\",\"image\":\"\",\"count\":0}";
+                            OkHttpClient client = new OkHttpClient();
+                            Request request = new Request.Builder()
+                                    .url(Api.url + "/comment/add")
+                                    .post(RequestBody.create(MediaType.parse("application/json"), json))
+                                    .build();
+                            Response response = client.newCall(request).execute(); //执行发送指令
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(VideoDetails_page.this,"发布成功！",Toast.LENGTH_SHORT).show();
+                                    mAdapter.addData(nickname,var);
+                                    editText.setText("");
+                                }
+                            });
+                        }catch (Exception e){
+                            e.printStackTrace();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(VideoDetails_page.this,"发布失败！",Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    }
+                }).start();
+            }
+        });
         dialog.show();//显示对话框
     }
 

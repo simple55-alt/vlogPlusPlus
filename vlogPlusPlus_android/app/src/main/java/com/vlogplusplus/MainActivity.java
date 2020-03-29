@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //视频详细页面
         Button button4 = findViewById(R.id.button_temp_test4);
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("video_id",1);
                 intent.putExtra("video",Api.web+"video/1584265151782.mp4");
                 intent.putExtra("subtitle",Api.web+"subtitle/1584265151782.txt");
+                intent.putExtra("u_id",1);
+                intent.putExtra("nickname","想放松");
                 startActivity(intent);
             }
         });

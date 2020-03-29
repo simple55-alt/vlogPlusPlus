@@ -19,6 +19,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.ViewHolder>{
@@ -32,7 +33,6 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
         this.mName=new ArrayList<String>();
         this.mContent=new ArrayList<String>();
         this.mTime=new ArrayList<String>();
-
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -58,6 +58,8 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
                             mName.add(nickname);
                             mContent.add(var);
                             mTime.add(c_time);
+                            notifyItemInserted(i);
+                            //notifyItemChanged(i);
                         }
                     }
                 }catch (Exception e){
@@ -95,13 +97,13 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
         return mName.get(position);
     }
 
-    public void addData() {//在list中添加数据，并通知条目加入一条
-        int position=getItemCount() + 1;
-        mName.add("陈奕迅" + position);
-        mContent.add("真的不错哦");
+    public void addData(String nickname, String var) {//在list中添加数据，并通知条目加入一条
+        mName.add(nickname);
+        mContent.add(var);
+        mTime.add("刚刚发布");
         //添加动画
-        notifyItemInserted(position - 1);
-        notifyItemChanged(position - 1);
+        notifyItemInserted(0);
+        notifyItemChanged(0);
     }
 
     //自定义的ViewHolder，持有每个Item的的所有界面元素

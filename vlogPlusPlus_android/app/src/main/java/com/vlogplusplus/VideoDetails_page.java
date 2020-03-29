@@ -119,6 +119,14 @@ public class VideoDetails_page extends AppCompatActivity implements View.OnClick
         video_id = getIntent().getIntExtra("video_id",0);
         u_id = getIntent().getIntExtra("u_id",0);
         nickname = getIntent().getStringExtra("nickname");
+        TextView videotitle = findViewById(R.id.videotitle); //设置视频标题
+        videotitle.setText(getIntent().getStringExtra("video_title"));
+        TextView uploadtime = findViewById(R.id.uploadtime); //设置视频上传时间
+        uploadtime.setText(getIntent().getStringExtra("video_uploadTime"));
+        TextView authorName = findViewById(R.id.name);  //设置作者名字
+        authorName.setText(getIntent().getStringExtra("nickname"));
+        CircleImageView head_img = findViewById(R.id.headp);  //设置作者头像
+        head_img.setImageURL(getIntent().getStringExtra("author_headimg"));
         ImageButton backb = findViewById(R.id.back);
         backb.setOnClickListener(new View.OnClickListener() {
             @Override

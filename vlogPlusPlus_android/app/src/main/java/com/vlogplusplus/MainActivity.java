@@ -39,10 +39,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, VideoDetails_page.class);
                 intent.putExtra("video_id",1);
+                intent.putExtra("video_title","视频标题");
+                intent.putExtra("video_uploadTime","2020-03-15 15:08:03");
                 intent.putExtra("video",Api.web+"video/1584265151782.mp4");
                 intent.putExtra("subtitle",Api.web+"subtitle/1584265151782.txt");
                 intent.putExtra("u_id",1);
                 intent.putExtra("nickname","想放松");
+                intent.putExtra("author_headimg",Api.web+"head_img/1584279995535.jpg");
                 startActivity(intent);
             }
         });

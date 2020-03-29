@@ -63,6 +63,7 @@ public class VDRemark_Adapter extends RecyclerView.Adapter<VDRemark_Adapter.View
                             mTime.add(c_time);
                             mHeadImg.add(uimage);
                         }
+                        notifyDataSetChanged();
                     }
                 }catch (Exception e){
                     e.printStackTrace();

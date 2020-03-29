@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 15/03/2020 22:16:30
+ Date: 29/03/2020 11:59:33
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `activity`  (
   `begin_time` datetime(0) NOT NULL,
   `end_time` datetime(0) NULL DEFAULT NULL,
   `method` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
-  `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
+  `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
   `c_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
@@ -49,7 +49,7 @@ CREATE TABLE `comment`  (
   `target_id` int(11) NOT NULL,
   `c_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
   `var` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
-  `image` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
+  `image` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
   `count` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `u_id`(`u_id`) USING BTREE,
@@ -59,8 +59,15 @@ CREATE TABLE `comment`  (
 -- ----------------------------
 -- Records of comment
 -- ----------------------------
-INSERT INTO `comment` VALUES (1, 2, 1, '2020-03-06 23:23:19', '评论的内容：这个视频真好看啊！', 'comment/1.jpg', 0);
-INSERT INTO `comment` VALUES (2, 2, -1, '2020-03-06 23:23:47', '这个模板不错', NULL, 0);
+INSERT INTO `comment` VALUES (1, 2, 1, '2020-03-06 23:23:19', '评论的内容：这个视频真好看啊！', 'comment/1584279995535.jpg', 0);
+INSERT INTO `comment` VALUES (2, 2, -1, '2020-03-06 23:23:47', '这个模板不错', '', 0);
+INSERT INTO `comment` VALUES (3, 2, 1, '2020-03-28 22:03:10', '太好看了', '', 0);
+INSERT INTO `comment` VALUES (4, 1, 1, '2020-03-29 10:11:57', 'say something ok?!', '', 0);
+INSERT INTO `comment` VALUES (5, 1, 1, '2020-03-29 10:21:14', 'I like this video bcz its my video!! hia hia~', '', 0);
+INSERT INTO `comment` VALUES (6, 1, 1, '2020-03-29 10:23:33', 'If u like my video, plz give me a like! 3Q', '', 0);
+INSERT INTO `comment` VALUES (7, 1, 1, '2020-03-29 10:29:56', 'plz follow me!', '', 0);
+INSERT INTO `comment` VALUES (8, 1, 1, '2020-03-29 11:23:13', '@测试账号 Grazie!!', '', 0);
+INSERT INTO `comment` VALUES (9, 1, 1, '2020-03-29 11:24:53', '@测试账号 xia xia', '', 0);
 
 -- ----------------------------
 -- Table structure for complaint
@@ -89,7 +96,7 @@ CREATE TABLE `draft`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `video_id` int(11) NULL DEFAULT NULL,
   `u_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
-  `draft_image` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
+  `draft_image` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `video_id`(`video_id`) USING BTREE,
   CONSTRAINT `draft_ibfk_1` FOREIGN KEY (`video_id`) REFERENCES `video` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
@@ -99,6 +106,30 @@ CREATE TABLE `draft`  (
 -- Records of draft
 -- ----------------------------
 INSERT INTO `draft` VALUES (1, 1, '2020-03-06 23:36:25', 'draft/1.jpg');
+
+-- ----------------------------
+-- Table structure for dynamic
+-- ----------------------------
+DROP TABLE IF EXISTS `dynamic`;
+CREATE TABLE `dynamic`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `u_id` int(11) NOT NULL,
+  `c_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
+  `var` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
+  `video` int(11) NULL DEFAULT 0,
+  `dynamic_img` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
+  `at_uid` int(11) NULL DEFAULT 0,
+  `public` tinyint(4) NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `u_id`(`u_id`) USING BTREE,
+  CONSTRAINT `dynamic_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of dynamic
+-- ----------------------------
+INSERT INTO `dynamic` VALUES (1, 2, '2020-03-29 11:48:35', '今天好开心，@想放松i', 0, '', 1, 0);
+INSERT INTO `dynamic` VALUES (2, 1, '2020-03-29 11:49:18', '看看自己以前拍的视频', 1, '', 0, 0);
 
 -- ----------------------------
 -- Table structure for fan
@@ -196,7 +227,7 @@ CREATE TABLE `search`  (
   `c_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
   `count` int(11) NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of search
@@ -213,19 +244,20 @@ DROP TABLE IF EXISTS `template_info`;
 CREATE TABLE `template_info`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
-  `summary` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
-  `detail` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
+  `summary` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
+  `detail` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
   `u_id` int(11) NOT NULL,
   `c_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `u_id`(`u_id`) USING BTREE,
   CONSTRAINT `template_info_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of template_info
 -- ----------------------------
 INSERT INTO `template_info` VALUES (1, '模板名字', '目标概要', '模板内容', 1, '2020-03-06 23:21:09');
+INSERT INTO `template_info` VALUES (2, '模板2', '概要', '内容', 2, '2020-03-15 22:31:43');
 
 -- ----------------------------
 -- Table structure for topic
@@ -235,14 +267,14 @@ CREATE TABLE `topic`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
   `summary` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
-  `video` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
+  `video` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
   `c_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
   `count` int(11) NULL DEFAULT 0,
   `u_id` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `u_id`(`u_id`) USING BTREE,
   CONSTRAINT `topic_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of topic
@@ -278,26 +310,27 @@ CREATE TABLE `user`  (
   `u_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
   `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
-  `nickname` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
-  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
-  `phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
-  `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
+  `nickname` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
+  `phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
+  `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
   `level` int(11) NULL DEFAULT 0,
   `count_fan` int(11) NULL DEFAULT 0,
   `count_follow` int(11) NULL DEFAULT 0,
   `sex` tinyint(4) NULL DEFAULT 1,
   `birthday` datetime(0) NULL DEFAULT NULL,
-  `fashion` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
-  `medal` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
+  `fashion` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
+  `medal` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
   PRIMARY KEY (`u_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_german2_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'xfs', 'e10adc3949ba59abbe56e057f20f883e', '想放松', 'cnxfs@qq.com', '13082808309', 'userhead/1.jpg', 0, 1, 0, 1, '1999-01-06 22:39:43', '只有想不到，没有做不到', '小萌星');
-INSERT INTO `user` VALUES (2, 'test', 'e10adc3949ba59abbe56e057f20f883e', '测试账号', NULL, NULL, NULL, 0, 0, 1, 0, NULL, NULL, NULL);
-INSERT INTO `user` VALUES (3, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '管理员', '', '', '', 0, 0, 0, 0, '1999-05-12 20:20:20', '', NULL);
+INSERT INTO `user` VALUES (1, 'xfs', 'e10adc3949ba59abbe56e057f20f883e', '想放松', 'cnxfs@qq.com', '13082808309', 'head_img/1584279995535.jpg', 0, 1, 0, 1, '1999-01-06 22:39:43', '只有想不到，没有做不到', '小萌星');
+INSERT INTO `user` VALUES (2, 'test', 'e10adc3949ba59abbe56e057f20f883e', '测试账号', '', '', 'head_img/1584279252715.png', 0, 0, 1, 0, '2020-03-10 22:22:13', '', '');
+INSERT INTO `user` VALUES (3, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '管理员', '', '', '', 0, 0, 0, 0, '1999-05-12 20:20:20', '', '');
+INSERT INTO `user` VALUES (4, 'xfsfs', 'e10adc3949ba59abbe56e057f20f883e', 'xfsfs', '', '18857714822', '', 0, 0, 0, 0, '1998-01-01 08:00:00', '', '');
 
 -- ----------------------------
 -- Table structure for version
@@ -326,8 +359,8 @@ CREATE TABLE `video`  (
   `title` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
   `type` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
   `var` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
-  `subtitle` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
-  `content` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT NULL,
+  `subtitle` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
+  `content` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NULL DEFAULT '',
   `u_id` int(11) NOT NULL,
   `t_id` int(11) NULL DEFAULT NULL,
   `c_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
@@ -346,7 +379,8 @@ CREATE TABLE `video`  (
 -- ----------------------------
 -- Records of video
 -- ----------------------------
-INSERT INTO `video` VALUES (1, '视频标题', '视频类别', 'video/1.mp4', 'video/1.src', '视频内容介绍文字', 1, 1, '2020-03-06 23:21:31', 1, 0, 1, 0, 1);
+INSERT INTO `video` VALUES (1, '视频标题', '视频类别', 'video/1584265151782.mp4', 'subtitle/1584265151782.txt', '视频内容介绍文字', 1, 1, '2020-03-06 23:21:31', 1, 0, 1, 0, 1);
+INSERT INTO `video` VALUES (2, '再见韩国', '类别2', 'video/1584445454970.mp4', 'subtitle/1584445454970.txt', '离开汉阳大', 1, 1, '2020-03-28 22:00:32', 0, 0, 0, 0, 1);
 
 -- ----------------------------
 -- Table structure for visitor
